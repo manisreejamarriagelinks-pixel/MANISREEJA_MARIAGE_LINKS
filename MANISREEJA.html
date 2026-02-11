@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANISREEJA MARRIAGE LINKS</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #FF4081; /* Hot Pink */
+            --secondary-color: #FFD700; /* Gold */
+            --accent-color: #7C4DFF; /* Deep Purple */
+            --text-color: #333;
+            --bg-light: #FCE4EC; /* Light Pink Background */
+            --white: #ffffff;
+            --shadow: 0 8px 20px rgba(124, 77, 255, 0.2);
+            --gradient: linear-gradient(135deg, #FF4081, #7C4DFF);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: linear-gradient(45deg, #FFEBEE, #EDE7F6, #FFF8E1); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: var(--text-color); min-height: 100vh; display: flex; flex-direction: column; }
+        
+        @keyframes gradientBG { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
+
+        /* --- Header --- */
+        header { background: var(--gradient); color: var(--white); padding: 1rem 2rem; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: var(--secondary-color); text-transform: uppercase; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        nav ul { display: flex; list-style: none; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; cursor: pointer; padding: 8px 15px; border-radius: 25px; transition: 0.3s; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+        nav a:hover, nav a.active { background: var(--secondary-color); color: var(--accent-color); transform: scale(1.05); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+        /* --- Main Layout --- */
+        main { flex: 1; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
+        .page-section { display: none; animation: slideUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .page-section.active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        h2 { font-family: 'Playfair Display', serif; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center; font-size: 2.2rem; text-shadow: 1px 1px 0px #fff; }
+
+        /* --- Components --- */
+        .btn { padding: 10px 20px; border: none; border-radius: 25px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: var(--gradient); color: white; box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4); }
+        .btn-secondary { background: var(--secondary-color); color: #5d4037; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); }
+        .btn-success { background: #00E676; color: #004d40; box-shadow: 0 4px 15px rgba(0, 230, 118, 0.4); }
+        .btn-danger { background: #FF5252; color: white; box-shadow: 0 4px 15px rgba(255, 82, 82, 0.4); }
+        .btn:hover { transform: translateY(-2px) scale(1.02); }
+
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--accent-color); font-size: 0.9rem; }
+        .form-control { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; background: #fff; transition: 0.3s; }
+        .form-control:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 10px rgba(255,64,129,0.2); }
+
+        /* --- Home --- */
+        .hero { text-align: center; padding: 3rem; background: rgba(255,255,255,0.9); border-radius: 20px; box-shadow: var(--shadow); border: 2px solid var(--white); }
+        .quotation-box { background: #FFF3E0; border-left: 5px solid var(--secondary-color); padding: 1.5rem; margin: 2rem 0; font-style: italic; font-size: 1.2rem; color: #E65100; border-radius: 0 10px 10px 0; }
+
+        /* --- Profile Cards --- */
+        .filters-bar { background: var(--white); padding: 1.5rem; border-radius: 15px; box-shadow: var(--shadow); margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: end; }
+        .profiles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+        #fixed-completed, #fixed-pending { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+        .profile-card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: 0.3s; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.05); position: relative; }
+        .profile-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(124, 77, 255, 0.3); }
+        
+        .card-img-container { position: relative; width: 100%; height: 380px; background-color: #eee; overflow: hidden; }
+        .card-img-top { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; cursor: pointer; }
+        .profile-card:hover .card-img-top { transform: scale(1.1); }
+        
+        .card-badge { position: absolute; top: 10px; right: 10px; background: var(--secondary-color); color: #333; padding: 5px 12px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10; }
+
+        .card-body { padding: 1.5rem; flex-grow: 1; background: linear-gradient(to bottom, #fff, #fafafa); }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+        .card-text { color: #666; font-size: 0.9rem; margin-bottom: 4px; }
+        .card-text i { color: var(--accent-color); width: 20px; }
+        
+        .card-actions { padding: 1rem; background-color: #fff; display: flex; gap: 10px; border-top: 1px solid #eee; }
+        
+        /* Simple Profile Cards for Fixed Matches */
+        .simple-profile-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: 0.3s; display: flex; flex-direction: column; align-items: center; padding: 1rem; text-align: center; border: 1px solid rgba(0,0,0,0.05); }
+        .simple-profile-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(124, 77, 255, 0.2); }
+        .simple-card-img { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin-bottom: 1rem; border: 3px solid var(--primary-color); }
+        .simple-card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .simple-card-info { margin-bottom: 1rem; }
+        .simple-card-info h4 { font-family: 'Playfair Display', serif; color: var(--primary-color); margin: 0.5rem 0; font-size: 1.1rem; }
+        .simple-card-info p { color: #666; margin: 0.3rem 0; font-size: 0.9rem; }
+        .simple-card-actions { display: flex; gap: 8px; width: 100%; }
+        .btn-sm { padding: 8px 12px; font-size: 0.8rem; }
+        
+        /* Image Gallery Modal */
+        .gallery-modal { display: none; position: fixed; z-index: 2500; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.98); align-items: center; justify-content: center; }
+        .gallery-modal.open { display: flex; }
+        .gallery-container { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0; }
+        .gallery-image { max-width: 95vw; max-height: 90vh; width: auto; height: auto; object-fit: contain; border-radius: 5px; }
+        .gallery-nav-btn { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.25); color: white; border: none; font-size: 4rem; width: 75px; height: 75px; padding: 0; cursor: pointer; border-radius: 50%; transition: 0.3s; z-index: 10; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .gallery-nav-btn:hover { background: rgba(255,255,255,0.5); transform: translateY(-50%) scale(1.1); }
+        .gallery-nav-prev { left: 12px; }
+        .gallery-nav-next { right: 12px; }
+        .gallery-close { position: fixed; top: 20px; right: 20px; font-size: 3rem; color: white; cursor: pointer; background: rgba(0,0,0,0.5); border: none; width: 60px; height: 60px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .gallery-close:hover { background: rgba(0,0,0,0.8); }
+        .gallery-counter { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); color: white; font-size: 1.2rem; font-weight: bold; background: rgba(0,0,0,0.6); padding: 12px 25px; border-radius: 25px; }
+        .image-thumbnail { cursor: pointer; width: 65px; height: 65px; object-fit: cover; border-radius: 6px; border: 3px solid transparent; transition: 0.3s; }
+        .image-thumbnail:hover { transform: scale(1.15); border-color: var(--primary-color); }
+        .image-thumbnail.active { border-color: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
+        .gallery-thumbnails { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: none; gap: 12px; background: rgba(0,0,0,0.8); padding: 15px 20px; border-radius: 15px; max-width: 90vw; overflow-x: auto; z-index: 20; }
+        @media (max-width: 768px) {
+            .gallery-nav-btn { font-size: 3rem; width: 60px; height: 60px; }
+            .gallery-nav-prev { left: 8px; }
+            .gallery-nav-next { right: 8px; }
+            .gallery-counter { font-size: 1rem; bottom: 25px; }
+            .image-thumbnail { width: 55px; height: 55px; }
+        }
+        
+        /* Profile Images Section */
+        .profile-images-section { display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; }
+        .profile-photos-title { font-weight: bold; color: var(--primary-color); margin-bottom: 10px; font-size: 1.1rem; }
+        .main-photo-container { width: 100%; height: 400px; border-radius: 12px; overflow: hidden; border: 3px solid var(--primary-color); cursor: pointer; box-shadow: 0 6px 20px rgba(124, 77, 255, 0.3); background: #f0f0f0; position: relative; transition: 0.3s; }
+        .main-photo-container:hover { box-shadow: 0 8px 25px rgba(124, 77, 255, 0.4); transform: translateY(-2px); }
+        .main-photo-container img { width: 100%; height: 100%; object-fit: cover; }
+        .main-photo-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.4); color: white; padding: 12px 24px; border-radius: 25px; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; opacity: 0; transition: 0.3s; }
+        .main-photo-container:hover .main-photo-overlay { opacity: 1; }
+        .thumbnail-container { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; }
+        .thumbnail-item { position: relative; min-width: 90px; width: 90px; height: 90px; border-radius: 8px; overflow: hidden; border: 2px solid #ddd; cursor: pointer; transition: 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .thumbnail-item:hover { border-color: var(--primary-color); transform: scale(1.05); box-shadow: 0 4px 12px rgba(255, 64, 129, 0.3); }
+        .thumbnail-item.active { border-color: var(--primary-color); border-width: 3px; }
+        .thumbnail-item img { width: 100%; height: 100%; object-fit: cover; }
+        .thumbnail-delete-btn { position: absolute; top: -8px; right: -8px; background: #FF5252; color: white; border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: bold; opacity: 0; transition: 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+        .thumbnail-item:hover .thumbnail-delete-btn { opacity: 1; }
+        .thumbnail-delete-btn:hover { background: #d32f2f; transform: scale(1.1); }
+        @media (max-width: 600px) {
+            .main-photo-container { height: 300px; }
+            .thumbnail-item { min-width: 70px; width: 70px; height: 70px; }
+        }
+        
+        /* Custom Fields Management */
+        .fields-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .fields-table th, .fields-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        .fields-table th { background: var(--gradient); color: white; }
+        .field-input-group { display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; margin-bottom: 10px; }
+        .drag-handle { cursor: grab; color: var(--accent-color); font-weight: bold; }
+        .drag-handle:active { cursor: grabbing; }
+        
+        /* Edit Field Modal */
+        .edit-field-modal { display: none; position: fixed; z-index: 2500; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); align-items: center; justify-content: center; }
+        .edit-field-modal.open { display: flex; }
+        .edit-field-content { background-color: var(--white); padding: 2rem; border-radius: 20px; width: 95%; max-width: 600px; position: relative; animation: zoomIn 0.3s ease; }
+        .edit-field-content h3 { color: var(--primary-color); margin-bottom: 1.5rem; }
+        .edit-field-content .form-group { margin-bottom: 1rem; }
+        .edit-field-close { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: #999; }
+        .edit-field-close:hover { color: var(--danger); }
+
+        /* --- Payment Page --- */
+        .payment-box { max-width: 500px; margin: 0 auto; background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); border-top: 5px solid var(--success); }
+        .payment-form input { border: 1px solid #ddd; padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; }
+
+        /* --- Admin --- */
+        .dashboard-container { background: var(--white); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); }
+        .admin-section { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px dashed #eee; }
+        .table-responsive { overflow-x: auto; margin-top: 1rem; }
+        table { width: 100%; border-collapse: separate; border-spacing: 0; }
+        th { background: var(--gradient); color: white; padding: 15px; text-align: left; }
+        th:first-child { border-top-left-radius: 10px; }
+        th:last-child { border-top-right-radius: 10px; }
+        td { padding: 12px 15px; border-bottom: 1px solid #eee; background: white; }
+        tr:hover td { background-color: #FFF3E0; }
+
+        /* --- Modal --- */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
+        .modal.open { display: flex; }
+        .modal-content { background-color: var(--white); padding: 2rem; border-radius: 20px; width: 95%; max-width: 800px; max-height: 90vh; overflow-y: auto; position: relative; animation: zoomIn 0.3s ease; border: 2px solid var(--secondary-color); }
+        @keyframes zoomIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: #999; transition: 0.2s; }
+        .close-modal:hover { color: var(--danger); transform: rotate(90deg); }
+        
+        /* Image Preview in Modal */
+        .gallery-preview { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; margin-top: 15px; }
+        .img-wrapper { position: relative; width: 100%; height: 100px; border-radius: 8px; overflow: hidden; border: 2px solid #eee; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .img-remove-btn { position: absolute; top: 2px; right: 2px; background: rgba(255,0,0,0.8); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px; border: none; }
+
+        /* --- Toast --- */
+        #toast { visibility: hidden; min-width: 300px; background-color: #333; color: #fff; text-align: center; border-radius: 50px; padding: 16px; position: fixed; z-index: 3000; left: 50%; bottom: 30px; transform: translateX(-50%); box-shadow: 0 5px 15px rgba(0,0,0,0.3); font-weight: 600; }
+        #toast.show { visibility: visible; animation: bounceIn 0.5s; }
+        @keyframes bounceIn { 0% {bottom: 0; opacity: 0;} 100% {bottom: 30px; opacity: 1;} }
+
+        footer { background: #212121; color: #fff; text-align: center; padding: 1.5rem; margin-top: auto; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            nav ul { gap: 8px; }
+            nav a { font-size: 0.75rem; padding: 6px 10px; }
+            .filters-bar { flex-direction: column; align-items: stretch; }
+            #fixed-matches > div { grid-template-columns: 1fr !important; }
+            #fixed-completed, #fixed-pending { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo"><i class="fas fa-rings-wedding"></i> Manisreeja Links</div>
+            <nav>
+                <ul>
+                    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+                    <li><a onclick="showPage('profiles')" id="nav-profiles">Profiles</a></li>
+                    <li id="nav-fixed-li" style="display:none;"><a onclick="showPage('fixed-matches')" id="nav-fixed">Fixed Matches</a></li>
+                    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+                    <li><a onclick="showPage('admin')" id="nav-admin">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <h2>Find Your Perfect Match</h2>
+                <div class="quotation-box">
+                    "Love is composed of a single soul inhabiting two bodies. Begin your journey with Manisreeja Marriage Links."
+                </div>
+                <button class="btn btn-primary" onclick="showPage('profiles')"><i class="fas fa-heart"></i> View Profiles</button>
+            </div>
+        </section>
+
+        <!-- PROFILES -->
+        <section id="profiles" class="page-section">
+            <h2>Available Profiles</h2>
+            <div class="filters-bar">
+                <div class="form-group" style="flex:1;">
+                    <label>Gender</label>
+                    <select id="filter-gender" class="form-control" onchange="renderProfiles()">
+                        <option value="all">All</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex:1;">
+                    <label>Min Age</label>
+                    <input type="number" id="filter-min-age" class="form-control" value="18" onchange="renderProfiles()">
+                </div>
+                <div class="form-group" style="flex:1;">
+                    <label>Max Age</label>
+                    <input type="number" id="filter-max-age" class="form-control" value="60" onchange="renderProfiles()">
+                </div>
+                <button class="btn btn-success" onclick="openAddProfileModal()"><i class="fas fa-plus"></i> Add New Profile</button>
+            </div>
+            <div id="profiles-list" class="profiles-grid"></div>
+        </section>
+
+        <!-- FIXED MATCHES -->
+        <section id="fixed-matches" class="page-section">
+            <h2><i class="fas fa-check-circle" style="color:#00E676"></i> Fixed Matches</h2>
+            <p style="text-align:center; color:#666; margin-bottom:20px;">Profiles marked as fixed by admin.</p>
+            <div id="fixed-list" class="profiles-grid"></div>
+        </section>
+
+        <!-- ADD NEW PROFILE (Admin Only) -->
+        <section id="new-profile" class="page-section">
+            <div style="max-width:600px; margin:0 auto;">
+                <h2><i class="fas fa-user-plus" style="color:#4CAF50"></i> Add New Profile</h2>
+                <p style="text-align:center; color:#666; margin-bottom:30px;">Create a new profile for the marriage links database.</p>
+                <form id="new-profile-form" onsubmit="saveNewProfile(event)">
+                    <div style="display:grid; grid-template-columns: 1fr; gap:15px;">
+                        <div class="form-group"><label>Full Name</label><input type="text" id="np-name" class="form-control" required></div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                        <div class="form-group"><label>Age</label><input type="number" id="np-age" class="form-control" required></div>
+                        <div class="form-group"><label>Gender</label><select id="np-gender" class="form-control" required><option value="">Select Gender</option><option value="Male">Male</option><option value="Female">Female</option></select></div>
+                    </div>
+
+                    <!-- Custom Profile Fields (Dynamic) -->
+                    <div id="new-profile-custom-fields-container"></div>
+
+                    <!-- Photos -->
+                    <div class="form-group" style="margin-top:10px;">
+                        <label>Upload Photos</label>
+                        <input type="file" id="np-files" class="form-control" multiple accept="image/*">
+                    </div>
+
+                    <!-- Media Preview Area -->
+                    <div id="new-profile-preview-area" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(80px, 1fr)); gap:10px; margin-top:15px;"></div>
+
+                    <div style="margin-top:20px; text-align:center;">
+                        <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-save"></i> Create Profile</button>
+                        <button type="button" class="btn btn-secondary" style="width:100%; margin-top:10px;" onclick="showPage('admin')"><i class="fas fa-arrow-left"></i> Back to Admin</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- PAYMENT COMPLETED (Admin Only) -->
+        <section id="payment-completed" class="page-section">
+            <h2><i class="fas fa-money-bill-wave" style="color:#00E676"></i> Payment Completed</h2>
+            <p style="text-align:center; color:#666; margin-bottom:20px;">All profiles marked as fixed with completed payment.</p>
+            <div id="payment-completed-list" class="profiles-grid"></div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="page-section">
+            <div class="hero" style="max-width:600px; margin:0 auto;">
+                <h2>Contact Us</h2>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <div style="padding:10px; background:#eee; border-radius:5px;">MANISREEJAMARIAGELINKS@GMAIL.COM</div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Phone</label>
+                    <div style="padding:10px; background:#eee; border-radius:5px;">7702694149, 9441931031</div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fab fa-whatsapp"></i> WhatsApp</label>
+                    <a href="https://wa.me/917702694149" target="_blank" class="btn btn-success" style="width:100%; justify-content:center;">Chat Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADMIN -->
+        <section id="admin" class="page-section">
+            <div id="admin-login" class="hero" style="max-width: 400px; margin: 0 auto;">
+                <h2><i class="fas fa-user-shield"></i> Admin Access</h2>
+                <div class="form-group"><label>Username</label><input type="text" id="admin-user" class="form-control"></div>
+                <div class="form-group"><label>Password</label><input type="password" id="admin-pass" class="form-control"></div>
+                <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="handleLogin()">Login</button>
+            </div>
+
+            <div id="admin-dashboard" class="dashboard-container" style="display:none;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; background:var(--bg-light); padding:15px; border-radius:10px; gap:10px;">
+                    <h3 style="color:var(--accent-color);">Welcome, Admin</h3>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-success" onclick="showPage('new-profile')"><i class="fas fa-user-plus"></i> Add New Profile</button>
+                        <button class="btn btn-primary" onclick="showPage('payment-completed')"><i class="fas fa-money-check-alt"></i> Payment Completed</button>
+                        <button class="btn btn-danger" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Profiles Table -->
+                <div class="admin-section">
+                    <h3>Manage Profiles</h3>
+                    <button class="btn btn-success" onclick="openAddProfileModal()">+ Add Profile</button>
+                    <div class="table-responsive">
+                        <table id="profile-table">
+                            <thead><tr><th>Name</th><th>Phone</th><th>Private Data</th><th>Status</th><th>Action</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- All Fields Management (Unified) -->
+                <div class="admin-section">
+                    <h3>Manage All Fields</h3>
+                    <p style="color:#666; margin-bottom:15px;">Manage ALL profile fields here - arrange order, change visibility, and customize layout.</p>
+                    <div class="table-responsive">
+                        <table id="all-fields-table">
+                            <thead><tr><th style="width:60px;">Order</th><th>Field Name</th><th>Type</th><th>Visibility</th><th>Actions</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Add Custom Fields Section -->
+                <div class="admin-section">
+                    <h3>Add New Custom Field</h3>
+                    <p style="color:#666; margin-bottom:15px;">Add additional custom fields to the profile.</p>
+                    <div style="display:flex; gap:10px; margin-bottom:15px;">
+                        <input type="text" id="new-field-name" class="form-control" placeholder="Field Name (e.g., Occupation, Hobbies)">
+                        <select id="new-field-type" class="form-control" style="max-width:120px;">
+                            <option value="text">Text</option>
+                            <option value="textarea">Textarea</option>
+                            <option value="select">Select</option>
+                        </select>
+                        <button class="btn btn-secondary" onclick="addCustomField()">Add Field</button>
+                    </div>
+                </div>
+
+                <!-- Admin Management -->
+                <div class="admin-section">
+                    <h3>Manage Admins</h3>
+                    <div style="display:flex; gap:10px; margin-bottom:15px; background:#f9f9f9; padding:15px; border-radius:10px;">
+                        <input type="text" id="new-admin-user" class="form-control" placeholder="Username">
+                        <input type="text" id="new-admin-pass" class="form-control" placeholder="Password">
+                        <button class="btn btn-secondary" onclick="addAdmin()">Add Admin</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="admin-table">
+                            <thead><tr><th>Username</th><th>Actions</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PROFILE MODAL -->
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Profile Details</h2>
+            
+            <!-- Image Gallery at Top -->
+            <div id="profile-images-section" class="profile-images-section"></div>
+            
+            <form id="profile-form" onsubmit="saveProfile(event)">
+                <input type="hidden" id="p-id">
+                
+                <div style="display:grid; grid-template-columns: 1fr; gap:15px;">
+                    <div class="form-group"><label>Full Name</label><input type="text" id="p-name" class="form-control" required></div>
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <div class="form-group"><label>Age</label><input type="number" id="p-age" class="form-control" required></div>
+                    <div class="form-group"><label>Gender</label><select id="p-gender" class="form-control"><option value="Male">Male</option><option value="Female">Female</option></select></div>
+                </div>
+
+                <!-- Custom Profile Fields (Dynamic) -->
+                <div id="custom-fields-container"></div>
+
+                <!-- Photos -->
+                <div class="form-group" style="margin-top:10px;">
+                    <label>Upload Photos</label>
+                    <input type="file" id="p-files" class="form-control" multiple accept="image/*">
+                </div>
+
+                <!-- Media Preview Area -->
+                <div id="preview-area" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(80px, 1fr)); gap:10px; margin-top:15px;"></div>
+
+                <div id="form-actions" style="margin-top:20px; text-align:right;">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- IMAGE GALLERY MODAL -->
+    <div id="gallery-modal" class="gallery-modal">
+        <div class="gallery-container">
+            <button class="gallery-close" onclick="closeGalleryModal()" title="Close">&times;</button>
+            <button class="gallery-nav-btn gallery-nav-prev" onclick="prevImage()" title="Previous Photo">&lt;</button>
+            <img id="gallery-image" class="gallery-image" src="" alt="Gallery Image">
+            <button class="gallery-nav-btn gallery-nav-next" onclick="nextImage()" title="Next Photo">&gt;</button>
+            <div id="gallery-thumbnails" class="gallery-thumbnails"></div>
+            <div class="gallery-counter"><span id="current-image">1</span> / <span id="total-images">1</span></div>
+        </div>
+    </div>
+
+    <!-- EDIT FIELD MODAL -->
+    <div id="edit-field-modal" class="edit-field-modal">
+        <div class="edit-field-content">
+            <span class="edit-field-close" onclick="closeEditFieldModal()">&times;</span>
+            <h3>Edit Field</h3>
+            <form id="edit-field-form" onsubmit="saveEditField(event)">
+                <input type="hidden" id="edit-field-id">
+                
+                <div class="form-group">
+                    <label>Field Name</label>
+                    <input type="text" id="edit-field-name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Field Type</label>
+                    <select id="edit-field-type" class="form-control">
+                        <option value="text">Text</option>
+                        <option value="textarea">Textarea</option>
+                        <option value="select">Select</option>
+                        <option value="number">Number</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Visibility</label>
+                    <select id="edit-field-visibility" class="form-control">
+                        <option value="public">Public (Visible to Customers)</option>
+                        <option value="private">Private (Admin Only)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:20px;">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast">Message</div>
+
+    <script>
+        // --- DATA INITIALIZATION ---
+        const initialProfiles = [
+            { id: 1, name: "Arjun Rao", age: 28, gender: "Male", job: "Software Engineer", phone: "7702694149", caste: "Kamma", religion: "Hindu", location: "Hyderabad", height: "178", weight: "75", privateKey: "987654", status: "active", bio: "Looking for a simple partner.", photos: ["https://picsum.photos/seed/arjun/300/300", "https://picsum.photos/seed/arjun1/300/300"] },
+            { id: 2, name: "Priya Sharma", age: 25, gender: "Female", job: "Doctor", phone: "9441931031", caste: "Brahmin", religion: "Hindu", location: "Vijayawada", height: "165", weight: "55", privateKey: "123456", status: "active", bio: "Doctor by profession.", photos: ["https://picsum.photos/seed/priya/300/300", "https://picsum.photos/seed/priya1/300/300"] },
+            { id: 3, name: "Rahul Verma", age: 30, gender: "Male", job: "Business", phone: "9876543210", caste: "Vaishya", religion: "Hindu", location: "Delhi", height: "180", weight: "80", privateKey: "555555", status: "fixed", paymentStatus: "pending", bio: "Business owner.", photos: ["https://picsum.photos/seed/rahul/300/300"] }
+        ];
+
+        const initialAdmins = [
+            { id: 1, user: "admin", pass: "admin123" }
+        ];
+
+        const initialFields = [
+            { id: 1, name: "Occupation", type: "text", visibility: "public", order: 1 },
+            { id: 2, name: "Hobbies", type: "textarea", visibility: "public", order: 2 },
+            { id: 3, name: "Family Details", type: "textarea", visibility: "private", order: 3 }
+        ];
+
+        // Standard Fields (with order)
+        const standardFields = [
+            { id: 'name', name: 'Full Name', type: 'text', category: 'Basic', isStandard: true, order: 1, visibility: 'public' },
+            { id: 'age', name: 'Age', type: 'number', category: 'Basic', isStandard: true, order: 2, visibility: 'public' },
+            { id: 'gender', name: 'Gender', type: 'select', category: 'Basic', isStandard: true, order: 3, visibility: 'public' }
+        ];
+
+        let profiles = JSON.parse(localStorage.getItem('ms_profiles')) || initialProfiles;
+        let admins = JSON.parse(localStorage.getItem('ms_admins')) || initialAdmins;
+        let customFields = JSON.parse(localStorage.getItem('ms_fields')) || initialFields;
+        let allFields = JSON.parse(localStorage.getItem('ms_allfields')) || standardFields;
+        let currentEditingId = null;
+        let isAdminLoggedIn = false;
+        let currentGalleryIndex = 0;
+        let currentGalleryPhotos = [];
+        
+        let tempPhotos = [];
+        let tempNewProfilePhotos = [];
+
+        // --- NAVIGATION ---
+        function showPage(pageId) {
+            // Restrict fixed-matches, payment-completed, and new-profile to admin only
+            if((pageId === 'fixed-matches' || pageId === 'payment-completed' || pageId === 'new-profile') && !isAdminLoggedIn) {
+                alert('This page is only accessible to admins. Please login to admin panel first.');
+                showPage('profiles');
+                return;
+            }
+
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            if(document.getElementById('nav-'+pageId)) document.getElementById('nav-'+pageId).classList.add('active');
+
+            if(pageId === 'profiles') renderProfiles();
+            if(pageId === 'fixed-matches') renderFixedMatches();
+            if(pageId === 'payment-completed') renderPaymentCompleted();
+            if(pageId === 'new-profile') renderNewProfilePage();
+            if(pageId === 'admin' && isAdminLoggedIn) { renderAllFieldsTable(); renderProfileTable(); renderAdminTable(); }
+            window.scrollTo(0,0);
+        }
+
+        // --- IMAGE GALLERY FUNCTIONS ---
+        function openGallery(photos, startIndex = 0) {
+            if(!photos || photos.length === 0) return;
+            currentGalleryPhotos = photos;
+            currentGalleryIndex = startIndex;
+            displayGalleryImage();
+            const modal = document.getElementById('gallery-modal');
+            modal.classList.add('open');
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', handleGalleryKeyboard);
+            
+            // Add touch/swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            const handleSwipe = (e) => {
+                if(!modal.classList.contains('open')) return;
+                
+                if(e.type === 'touchstart') {
+                    touchStartX = e.changedTouches[0].screenX;
+                } else if(e.type === 'touchend') {
+                    touchEndX = e.changedTouches[0].screenX;
+                    
+                    // Swipe right - go to previous image
+                    if(touchStartX - touchEndX > 50) {
+                        nextImage();
+                    }
+                    // Swipe left - go to next image
+                    if(touchEndX - touchStartX > 50) {
+                        prevImage();
+                    }
+                }
+            };
+            
+            modal.addEventListener('touchstart', handleSwipe);
+            modal.addEventListener('touchend', handleSwipe);
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('gallery-modal').classList.remove('open');
+            document.removeEventListener('keydown', handleGalleryKeyboard);
+        }
+        
+        function handleGalleryKeyboard(e) {
+            const modal = document.getElementById('gallery-modal');
+            if(!modal.classList.contains('open')) return;
+            
+            if(e.key === 'ArrowRight') {
+                e.preventDefault();
+                nextImage();
+            } else if(e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevImage();
+            } else if(e.key === 'Escape') {
+                e.preventDefault();
+                closeGalleryModal();
+            }
+        }
+
+        function displayGalleryImage() {
+            const modal = document.getElementById('gallery-modal');
+            const img = document.getElementById('gallery-image');
+            const thumbContainer = document.getElementById('gallery-thumbnails');
+            
+            img.src = currentGalleryPhotos[currentGalleryIndex];
+            document.getElementById('current-image').textContent = currentGalleryIndex + 1;
+            document.getElementById('total-images').textContent = currentGalleryPhotos.length;
+
+            // Render thumbnails
+            thumbContainer.innerHTML = '';
+            currentGalleryPhotos.forEach((photo, idx) => {
+                const thumb = document.createElement('img');
+                thumb.src = photo;
+                thumb.className = 'image-thumbnail' + (idx === currentGalleryIndex ? ' active' : '');
+                thumb.style.borderColor = idx === currentGalleryIndex ? 'var(--primary-color)' : 'transparent';
+                thumb.onclick = () => { currentGalleryIndex = idx; displayGalleryImage(); };
+                thumbContainer.appendChild(thumb);
+            });
+        }
+
+        function nextImage() {
+            if(currentGalleryIndex < currentGalleryPhotos.length - 1) {
+                currentGalleryIndex++;
+            } else {
+                currentGalleryIndex = 0; // Loop back to first photo
+            }
+            displayGalleryImage();
+        }
+
+        function prevImage() {
+            if(currentGalleryIndex > 0) {
+                currentGalleryIndex--;
+            } else {
+                currentGalleryIndex = currentGalleryPhotos.length - 1; // Loop to last photo
+            }
+            displayGalleryImage();
+        }
+
+        // --- PROFILE RENDERING ---
+        function renderProfiles() {
+            const container = document.getElementById('profiles-list');
+            const filterGender = document.getElementById('filter-gender').value;
+            const minAge = parseInt(document.getElementById('filter-min-age').value);
+            const maxAge = parseInt(document.getElementById('filter-max-age').value);
+            container.innerHTML = '';
+
+            // Filter: Only active, Age, Gender
+            const list = profiles.filter(p => {
+                return p.status === 'active' &&
+                       (filterGender === 'all' || p.gender === filterGender) &&
+                       (p.age >= minAge && p.age <= maxAge);
+            });
+
+            if(list.length === 0) container.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:20px;">No active profiles found matching criteria.</p>';
+
+            list.forEach(p => createCard(p, container));
+        }
+
+        function renderFixedMatches() {
+            const container = document.getElementById('fixed-list');
+            container.innerHTML = '';
+            const list = profiles.filter(p => p.status === 'fixed' && p.paymentStatus !== 'completed');
+
+            if(list.length === 0) {
+                container.innerHTML = '<p style="grid-column:1/-1; text-align:center;">No fixed matches yet.</p>';
+                return;
+            }
+
+            list.forEach(p => createSimpleCard(p, container));
+        }
+        
+        function createSimpleCard(p, container) {
+            const mainImg = (p.photos && p.photos.length > 0) ? p.photos[0] : 'https://via.placeholder.com/300?text=No+Image';
+            
+            const card = document.createElement('div');
+            card.className = 'simple-profile-card';
+            card.innerHTML = `
+                <div class="simple-card-img">
+                    <img src="${mainImg}" alt="${p.name}">
+                </div>
+                <div class="simple-card-info">
+                    <h4>${p.name}</h4>
+                    <p>Age: ${p.age}</p>
+                </div>
+                <div class="simple-card-actions">
+                    <button class="btn btn-success btn-sm payment-completed-btn" data-id="${p.id}" style="flex:1;"><i class="fas fa-check"></i> Done</button>
+                </div>
+            `;
+            container.appendChild(card);
+            
+            // Attach event listener for Done button only
+            const completedBtn = card.querySelector('.payment-completed-btn');
+            
+            if(completedBtn) completedBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                updatePaymentStatus(parseInt(this.dataset.id), 'completed');
+            });
+        }
+        
+        function updatePaymentStatus(profileId, status) {
+            const profile = profiles.find(p => p.id === profileId);
+            if(profile) {
+                profile.paymentStatus = status;
+                // persist profiles and refresh relevant views
+                saveProfiles();
+                renderFixedMatches();
+                // if payment completed, open Payment Completed admin page
+                if(status === 'completed') {
+                    showToast(`Payment marked completed`);
+                    showPage('payment-completed');
+                    return;
+                }
+                showToast(`Payment status updated to ${status}`);
+            }
+        }
+
+        function saveProfiles() {
+            try {
+                localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+            } catch (err) {
+                console.error('Failed to save profiles', err);
+            }
+        }
+
+        function renderPaymentCompleted() {
+            const container = document.getElementById('payment-completed-list');
+            container.innerHTML = '';
+            const list = profiles.filter(p => p.status === 'fixed' && p.paymentStatus === 'completed');
+            if(list.length === 0) {
+                container.innerHTML = '<p style="grid-column:1/-1; text-align:center; color:#999;">No completed payments yet.</p>';
+                return;
+            }
+
+            list.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'simple-profile-card';
+                const img = (p.photos && p.photos.length>0) ? p.photos[0] : 'https://via.placeholder.com/300?text=No+Image';
+                div.innerHTML = `
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <div style="width:64px; height:64px; border-radius:50%; overflow:hidden; border:2px solid var(--primary-color);">
+                            <img src="${img}" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="flex:1; text-align:left;">
+                            <div style="font-weight:700; color:var(--primary-color);">${p.name}</div>
+                            <div style="color:#666; font-size:0.9rem;">Age: ${p.age}</div>
+                        </div>
+                        <div>
+                            <button class="btn btn-danger btn-sm payment-pending-btn" data-id="${p.id}"><i class="fas fa-clock"></i> Mark Pending</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+
+                const pendingBtn = div.querySelector('.payment-pending-btn');
+                if(pendingBtn) pendingBtn.addEventListener('click', function(e){
+                    e.preventDefault();
+                    updatePaymentStatus(parseInt(this.dataset.id), 'pending');
+                    showPage('fixed-matches');
+                });
+            });
+        }
+
+        function renderNewProfilePage() {
+            // Initialize temp storage for new profile
+            tempNewProfilePhotos = [];
+            document.getElementById('new-profile-form').reset();
+            renderNewProfilePhotos();
+            renderNewProfileCustomFields();
+            
+            // Attach file input handler
+            const npFilesInput = document.getElementById('np-files');
+            if(npFilesInput) {
+                npFilesInput.removeEventListener('change', handleNewProfileFilesChange);
+                npFilesInput.addEventListener('change', handleNewProfileFilesChange);
+            }
+        }
+
+        function renderNewProfilePhotos() {
+            const previewArea = document.getElementById('new-profile-preview-area');
+            if(!previewArea) return;
+            previewArea.innerHTML = '';
+            
+            if(tempNewProfilePhotos && tempNewProfilePhotos.length > 0) {
+                tempNewProfilePhotos.forEach((photo, index) => {
+                    const div = document.createElement('div');
+                    div.style.cssText = 'position:relative; width:80px; height:80px; border-radius:8px; overflow:hidden;';
+                    div.innerHTML = `
+                        <img src="${photo}" style="width:100%; height:100%; object-fit:cover;">
+                        <button type="button" style="position:absolute; top:2px; right:2px; background:#ff4444; color:white; border:none; border-radius:50%; width:24px; height:24px; cursor:pointer; font-size:16px;" onclick="removeNewProfilePhoto(${index})">×</button>
+                    `;
+                    previewArea.appendChild(div);
+                });
+            }
+        }
+
+        function removeNewProfilePhoto(index) {
+            tempNewProfilePhotos.splice(index, 1);
+            renderNewProfilePhotos();
+        }
+
+        function renderNewProfileCustomFields() {
+            const container = document.getElementById('new-profile-custom-fields-container');
+            if(!container) return;
+            container.innerHTML = '';
+            
+            // Get sorted fields from allFields
+            const sorted = [...allFields].sort((a, b) => a.order - b.order);
+            
+            // Show all custom fields on admin Add New Profile page
+            const fieldsToShow = sorted.filter(f => !f.isStandard);
+            
+            if(fieldsToShow && fieldsToShow.length > 0) {
+                fieldsToShow.forEach(field => {
+                    const div = document.createElement('div');
+                    div.className = 'form-group';
+                    const label = document.createElement('label');
+                    label.textContent = field.name;
+                    // Show private indicator for private fields
+                    if(field.visibility === 'private') {
+                        label.innerHTML += ' <span style="color:#d32f2f; font-size:0.8rem;"><i class="fas fa-lock"></i> Private</span>';
+                    }
+                    
+                    let input;
+                    if(field.type === 'textarea') {
+                        input = document.createElement('textarea');
+                        input.className = 'form-control';
+                        input.rows = 2;
+                    } else if(field.type === 'select') {
+                        input = document.createElement('select');
+                        input.className = 'form-control';
+                    } else {
+                        input = document.createElement('input');
+                        input.type = 'text';
+                        input.className = 'form-control';
+                        input.placeholder = field.name;
+                    }
+                    
+                    input.id = 'nprofile-field-' + field.id;
+                    input.dataset.fieldId = field.id;
+                    
+                    div.appendChild(label);
+                    div.appendChild(input);
+                    container.appendChild(div);
+                });
+            }
+        }
+
+        function saveNewProfile(event) {
+            event.preventDefault();
+            
+            if(!isAdminLoggedIn) {
+                alert('Only admins can create profiles. Please login to admin panel first.');
+                return;
+            }
+            
+            const name = document.getElementById('np-name').value.trim();
+            const age = document.getElementById('np-age').value;
+            const gender = document.getElementById('np-gender').value;
+            
+            if(!name || !age || !gender) {
+                alert('Please fill in all required fields (Name, Age, Gender).');
+                return;
+            }
+            
+            // Collect custom field values - only those that are in the form
+            const customFieldValues = {};
+            const sorted = [...allFields].sort((a, b) => a.order - b.order);
+            const fieldsToShow = sorted.filter(f => !f.isStandard);
+            
+            fieldsToShow.forEach(field => {
+                const input = document.getElementById('nprofile-field-' + field.id);
+                if(input) customFieldValues[field.id] = input.value;
+            });
+            
+            const newProfile = {
+                id: Date.now(),
+                name: name,
+                age: parseInt(age),
+                gender: gender,
+                phone: '',
+                photos: tempNewProfilePhotos || [],
+                customFieldValues: customFieldValues,
+                status: 'active',
+                paymentStatus: 'pending'
+            };
+            
+            profiles.push(newProfile);
+            localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+            
+            showToast('Profile created successfully!');
+            
+            // Reset form
+            document.getElementById('new-profile-form').reset();
+            tempNewProfilePhotos = [];
+            renderNewProfilePhotos();
+            
+            // Show admin panel
+            showPage('admin');
+        }
+
+        function handleNewProfileFilesChange(event) {
+            const files = event.target.files;
+            tempNewProfilePhotos = [];
+            
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    tempNewProfilePhotos.push(e.target.result);
+                    renderNewProfilePhotos();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Attach file handler to new profile form
+        document.addEventListener('DOMContentLoaded', function() {
+            const npFilesInput = document.getElementById('np-files');
+            if(npFilesInput) {
+                npFilesInput.addEventListener('change', handleNewProfileFilesChange);
+            }
+        });
+
+        function createCard(p, container, isFixed = false) {
+            const mainImg = (p.photos && p.photos.length > 0) ? p.photos[0] : 'https://via.placeholder.com/300?text=No+Image';
+            const hasMultiplePhotos = p.photos && p.photos.length > 1;
+            const paymentBadgeColor = p.paymentStatus === 'completed' ? '#00E676' : '#FF6D00';
+            const paymentBadgeText = p.paymentStatus === 'completed' ? 'Payment Done' : 'Pending';
+            
+            const card = document.createElement('div');
+            card.className = 'profile-card';
+            card.innerHTML = `
+                <div class="card-img-container">
+                    <div class="card-badge">${isFixed ? 'FIXED' : 'Active'}</div>
+                    ${isFixed && isAdminLoggedIn ? `<div style="position:absolute; top:50px; right:10px; background:${paymentBadgeColor}; color:white; padding:5px 10px; border-radius:15px; font-weight:bold; font-size:0.75rem;">${paymentBadgeText}</div>` : ''}
+                    <img src="${mainImg}" class="card-img-top" alt="Photo" title="Click to view full gallery" onclick="openGallery(${JSON.stringify(p.photos)}, 0)">
+                    <div style="position:absolute; bottom:15px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.6); color:white; padding:8px 16px; border-radius:20px; font-size:0.85rem; display:flex; align-items:center; gap:8px;">
+                        <i class="fas fa-images"></i> ${hasMultiplePhotos ? p.photos.length + ' Photos' : '1 Photo'}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">${p.name}</h3>
+                    <p class="card-text"><i class="fas fa-birthday-cake"></i> Age: ${p.age} | <i class="fas fa-user"></i> ${p.gender}</p>
+                </div>
+                <div class="card-actions">
+                    ${isFixed && isAdminLoggedIn ? `
+                    <button class="btn btn-success payment-completed-btn" data-id="${p.id}" style="flex:1; font-size:0.8rem;" title="Mark Payment as Completed"><i class="fas fa-check"></i> Done</button>
+                    <button class="btn btn-danger payment-pending-btn" data-id="${p.id}" style="flex:1; font-size:0.8rem;" title="Mark Payment as Pending"><i class="fas fa-clock"></i> Pending</button>
+                    ` : `
+                    <button class="btn btn-primary profile-view-btn" data-id="${p.id}" style="flex:1">View</button>
+                    <button class="btn btn-info profile-edit-btn-customer" data-id="${p.id}" style="flex:1">Edit</button>
+                    `}
+                </div>
+            `;
+            container.appendChild(card);
+            
+            // Attach event listeners
+            if(isFixed && isAdminLoggedIn) {
+                const completedBtn = card.querySelector('.payment-completed-btn');
+                const pendingBtn = card.querySelector('.payment-pending-btn');
+                
+                if(completedBtn) completedBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    updatePaymentStatus(parseInt(this.dataset.id), 'completed');
+                });
+                
+                if(pendingBtn) pendingBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    updatePaymentStatus(parseInt(this.dataset.id), 'pending');
+                });
+            } else {
+                const viewBtn = card.querySelector('.profile-view-btn');
+                const editBtn = card.querySelector('.profile-edit-btn-customer');
+                
+                if(viewBtn) viewBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    editProfile(parseInt(this.dataset.id));
+                });
+                
+                if(editBtn) editBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    editProfile(parseInt(this.dataset.id));
+                });
+            }
+        }
+
+        // --- MODAL & FORM LOGIC ---
+        function openAddProfileModal() {
+            resetForm();
+            document.getElementById('modal-title').innerText = "Add New Profile";
+            renderCustomFieldsInForm();
+            document.getElementById('profile-modal').classList.add('open');
+        }
+
+        function editProfile(id) {
+            const p = profiles.find(x => x.id === id);
+            if(!p) return;
+            resetForm();
+            currentEditingId = id;
+            
+            // Fill Basic (only standard fields that exist)
+            document.getElementById('p-name').value = p.name;
+            document.getElementById('p-age').value = p.age;
+            document.getElementById('p-gender').value = p.gender;
+
+            // Render Custom Fields
+            renderCustomFieldsInForm(p.customFieldValues);
+
+            // Photos
+            tempPhotos = p.photos || [];
+            renderProfileImages();
+            renderMediaPreviews();
+
+            // Enable all form fields for all users
+            const inputs = document.querySelectorAll('#profile-form input, #profile-form textarea, #profile-form select, #p-files');
+            inputs.forEach(el => el.disabled = false);
+
+            // Show Save Button for all users
+            document.getElementById('form-actions').style.display = 'block';
+            
+            // Set title to "Edit Profile" for all users
+            document.getElementById('modal-title').innerText = "Edit Profile";
+            document.getElementById('profile-modal').classList.add('open');
+        }
+
+        function editProfileWithKey(id) {
+            const p = profiles.find(x => x.id === id);
+            if(!p) return;
+            
+            if(isAdminLoggedIn) {
+                // Admin can edit directly
+                editProfile(id);
+                return;
+            }
+            
+            // For non-admin, ask for private key
+            const key = prompt("Enter the Private Key to edit this profile:");
+            if(key === null) return; // User cancelled
+            
+            if(p.privateKey && key === p.privateKey) {
+                // Key matches - allow editing
+                resetForm();
+                currentEditingId = id;
+                
+                // Fill Basic
+                document.getElementById('p-name').value = p.name;
+                document.getElementById('p-age').value = p.age;
+                document.getElementById('p-gender').value = p.gender;
+
+                // Render Custom Fields
+                renderCustomFieldsInForm(p.customFieldValues);
+
+                // Photos
+                tempPhotos = p.photos || [];
+                renderProfileImages();
+                renderMediaPreviews();
+
+                // Enable editing
+                const inputs = document.querySelectorAll('#profile-form input, #profile-form textarea, #profile-form select, #p-files');
+                inputs.forEach(el => el.disabled = false);
+
+
+                
+                // Show Save button
+                document.getElementById('form-actions').style.display = 'block';
+                
+                document.getElementById('modal-title').innerText = "Edit Profile";
+                document.getElementById('profile-modal').classList.add('open');
+            } else {
+                alert("Incorrect Private Key. Cannot edit profile.");
+            }
+        }
+
+        function renderProfileImages() {
+            const section = document.getElementById('profile-images-section');
+            section.innerHTML = '';
+            if(tempPhotos && tempPhotos.length > 0) {
+                // Title
+                const title = document.createElement('p');
+                title.className = 'profile-photos-title';
+                title.innerHTML = '<i class="fas fa-images"></i> Photos (' + tempPhotos.length + ')';
+                section.appendChild(title);
+                
+                // Main Photo Container
+                const mainContainer = document.createElement('div');
+                mainContainer.className = 'main-photo-container';
+                mainContainer.innerHTML = `
+                    <img src="${tempPhotos[0]}" alt="Main Profile Photo">
+                    <div class="main-photo-overlay"><i class="fas fa-expand"></i> Click to view full screen</div>
+                `;
+                
+                // Add click event listener to main container
+                mainContainer.addEventListener('click', function(e) {
+                    if(e.target.tagName === 'IMG') {
+                        openGallery(tempPhotos, 0);
+                    }
+                });
+                
+                section.appendChild(mainContainer);
+                
+                // Thumbnails Container (only if multiple photos)
+                if(tempPhotos.length > 1) {
+                    const thumbnailContainer = document.createElement('div');
+                    thumbnailContainer.className = 'thumbnail-container';
+                    
+                    tempPhotos.forEach((photo, idx) => {
+                        const thumbnail = document.createElement('div');
+                        thumbnail.className = 'thumbnail-item' + (idx === 0 ? ' active' : '');
+                        thumbnail.innerHTML = `
+                            <img src="${photo}" alt="Photo ${idx + 1}">
+                            <button class="thumbnail-delete-btn" title="Delete this photo">×</button>
+                        `;
+                        
+                        // Add click event listener to thumbnail image
+                        const img = thumbnail.querySelector('img');
+                        img.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            switchMainPhoto(idx);
+                        });
+                        
+                        // Add click event listener to delete button
+                        const deleteBtn = thumbnail.querySelector('.thumbnail-delete-btn');
+                        deleteBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            deleteProfilePhoto(idx);
+                        });
+                        
+                        thumbnailContainer.appendChild(thumbnail);
+                    });
+                    
+                    section.appendChild(thumbnailContainer);
+                }
+            }
+        }
+        
+        function switchMainPhoto(idx) {
+            const mainImg = document.querySelector('.main-photo-container img');
+            if(mainImg) {
+                mainImg.src = tempPhotos[idx];
+            }
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail-item').forEach((item, i) => {
+                if(i === idx) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+        
+        function deleteProfilePhoto(idx) {
+            if(confirm("Delete this photo?")) {
+                tempPhotos.splice(idx, 1);
+                
+                if(tempPhotos.length === 0) {
+                    showToast("Photo deleted. Profile must have at least one photo when saving.");
+                } else {
+                    showToast("Photo deleted");
+                }
+                
+                renderProfileImages();
+            }
+        }
+
+        function renderCustomFieldsInForm(values = {}) {
+            const container = document.getElementById('custom-fields-container');
+            container.innerHTML = '';
+            
+            // Get sorted fields from allFields
+            const sorted = [...allFields].sort((a, b) => a.order - b.order);
+            
+            // Show all custom fields for both admin and users
+            const fieldsToShow = sorted.filter(f => !f.isStandard);
+
+            fieldsToShow.forEach(field => {
+                const group = document.createElement('div');
+                group.className = 'form-group';
+                const label = document.createElement('label');
+                label.textContent = field.name;
+                // Show private indicator for all users if field is private
+                if(field.visibility === 'private') {
+                    label.innerHTML += ' <span style="color:#d32f2f; font-size:0.8rem;"><i class="fas fa-lock"></i> Private</span>';
+                }
+                
+                let input;
+                if(field.type === 'textarea') {
+                    input = document.createElement('textarea');
+                    input.className = 'form-control';
+                    input.rows = 2;
+                } else {
+                    input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'form-control';
+                }
+                
+                input.id = 'field-' + field.id;
+                input.value = values[field.id] || '';
+                input.disabled = !isAdminLoggedIn && currentEditingId && profiles.find(p => p.id === currentEditingId).status !== 'active';
+                
+                group.appendChild(label);
+                group.appendChild(input);
+                container.appendChild(group);
+            });
+        }
+
+        // File Upload with Delete Option (X) - Works for all users
+        document.getElementById('p-files').addEventListener('change', function(e) {
+            const files = e.target.files;
+            tempPhotos = []; // Clear previous photos when new files are selected
+            if(files.length > 0) {
+                Array.from(files).forEach(file => {
+                    if(file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(evt) {
+                            tempPhotos.push(evt.target.result);
+                            renderProfileImages();
+                            renderMediaPreviews();
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        });
+
+        function renderMediaPreviews() {
+            const area = document.getElementById('preview-area');
+            area.innerHTML = '';
+            tempPhotos.forEach((src, idx) => {
+                const div = document.createElement('div');
+                div.className = 'img-wrapper';
+                div.innerHTML = `
+                    <img src="${src}">
+                    <button type="button" class="img-remove-btn" onclick="removeImage(${idx})"><i class="fas fa-times"></i></button>
+                `;
+                area.appendChild(div);
+            });
+        }
+
+        function removeImage(idx) {
+            tempPhotos.splice(idx, 1);
+            renderProfileImages();
+            renderMediaPreviews();
+            if(tempPhotos.length === 0) {
+                showToast('Photo deleted. Make sure to add at least one photo before saving.');
+            }
+        }
+
+        function saveProfile(e) {
+            e.preventDefault();
+            
+            // Collect custom field values
+            const customFieldValues = {};
+            const customFieldsList = allFields.filter(f => !f.isStandard);
+            customFieldsList.forEach(field => {
+                const input = document.getElementById('field-' + field.id);
+                if(input) customFieldValues[field.id] = input.value;
+            });
+            
+            // Generate a unique private key for new profiles
+            const privateKey = currentEditingId ? 
+                (profiles.find(p=>p.id===currentEditingId).privateKey || Math.random().toString(36).substr(2, 9)) :
+                Math.random().toString(36).substr(2, 9);
+            
+            const newProfile = {
+                id: currentEditingId ? currentEditingId : Date.now(),
+                name: document.getElementById('p-name').value,
+                age: parseInt(document.getElementById('p-age').value),
+                gender: document.getElementById('p-gender').value,
+                privateKey: privateKey,
+                photos: tempPhotos,
+                customFieldValues: customFieldValues,
+                status: currentEditingId ? (profiles.find(p=>p.id===currentEditingId).status) : 'active',
+                paymentStatus: currentEditingId ? (profiles.find(p=>p.id===currentEditingId).paymentStatus || 'pending') : 'pending'
+            };
+
+            try {
+                if(currentEditingId) {
+                    const idx = profiles.findIndex(p => p.id === currentEditingId);
+                    profiles[idx] = newProfile;
+                    showToast("Profile Updated!");
+                } else {
+                    profiles.push(newProfile);
+                    showToast("Profile Added!");
+                }
+                localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+                closeModal();
+                renderProfiles();
+                renderProfileTable();
+            } catch (err) {
+                showToast("Error: Storage Full!");
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('profile-form').reset();
+            currentEditingId = null;
+            tempPhotos = [];
+            document.getElementById('preview-area').innerHTML = '';
+            document.getElementById('profile-images-section').innerHTML = '';
+            document.getElementById('custom-fields-container').innerHTML = '';
+        }
+
+        function closeModal() {
+            document.getElementById('profile-modal').classList.remove('open');
+        }
+
+        // --- ADMIN FUNCTIONS ---
+        function handleLogin() {
+            const u = document.getElementById('admin-user').value;
+            const p = document.getElementById('admin-pass').value;
+            
+            if(admins.find(a => a.user === u && a.pass === p)) {
+                isAdminLoggedIn = true;
+                document.getElementById('nav-fixed-li').style.display = 'block';
+                document.getElementById('admin-login').style.display = 'none';
+                document.getElementById('admin-dashboard').style.display = 'block';
+                renderAllFieldsTable();
+                renderProfileTable();
+                renderAdminTable();
+                showToast("Welcome Admin");
+            } else {
+                showToast("Invalid Login");
+            }
+        }
+
+        function logout() {
+            isAdminLoggedIn = false;
+            document.getElementById('nav-fixed-li').style.display = 'none';
+            document.getElementById('admin-login').style.display = 'block';
+            document.getElementById('admin-dashboard').style.display = 'none';
+            document.getElementById('admin-user').value = '';
+            document.getElementById('admin-pass').value = '';
+            showToast("Logged Out");
+        }
+
+        // --- ALL FIELDS MANAGEMENT (UNIFIED) ---
+        function renderAllFieldsTable() {
+            const tbody = document.querySelector('#all-fields-table tbody');
+            tbody.innerHTML = '';
+            
+            // Sort all fields by order
+            const sorted = [...allFields].sort((a, b) => a.order - b.order);
+            
+            sorted.forEach((field, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="text-align:center; font-weight:bold;">
+                        <div style="display:flex; gap:3px; flex-direction:column; align-items:center;">
+                            <button class="btn field-move-up" data-field-id="${field.id}" style="padding:3px 5px; margin:0; ${index === 0 ? 'opacity:0.5; cursor:not-allowed;' : ''}" ${index === 0 ? 'disabled' : ''}>▲</button>
+                            <button class="btn field-move-down" data-field-id="${field.id}" style="padding:3px 5px; margin:0; ${index === sorted.length - 1 ? 'opacity:0.5; cursor:not-allowed;' : ''}" ${index === sorted.length - 1 ? 'disabled' : ''}>▼</button>
+                        </div>
+                    </td>
+                    <td><strong>${field.name}</strong></td>
+                    <td><span style="background:#E3F2FD; padding:3px 8px; border-radius:3px; font-size:0.8rem;">${field.type}</span></td>
+                    <td>
+                        <button class="btn field-visibility-toggle" data-field-id="${field.id}" style="padding:3px 8px; font-size:0.8rem; background:${field.visibility === 'public'?'#C8E6C9':'#FFCCBC'}; color:#333;">
+                            ${field.visibility === 'public' ? '<i class="fas fa-eye"></i> Public' : '<i class="fas fa-eye-slash"></i> Private'}
+                        </button>
+                    </td>
+                    <td style="display:flex; gap:5px;">
+                        <button class="btn btn-secondary field-edit-btn" data-field-id="${field.id}" style="padding:3px 8px; font-size:0.8rem;"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="btn btn-danger field-delete-btn" data-field-id="${field.id}" style="padding:3px 8px; font-size:0.8rem;"><i class="fas fa-trash"></i> Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            // Attach event listeners using event delegation
+            attachFieldTableListeners();
+        }
+        
+        function attachFieldTableListeners() {
+            const tbody = document.querySelector('#all-fields-table tbody');
+            
+            // Delete field buttons
+            tbody.querySelectorAll('.field-delete-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const fieldId = this.getAttribute('data-field-id');
+                    deleteFieldGlobal(fieldId);
+                });
+            });
+            
+            // Edit field buttons
+            tbody.querySelectorAll('.field-edit-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const fieldId = this.getAttribute('data-field-id');
+                    openEditFieldModal(fieldId);
+                });
+            });
+            
+            // Field visibility toggle buttons
+            tbody.querySelectorAll('.field-visibility-toggle').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const fieldId = this.getAttribute('data-field-id');
+                    toggleFieldVisibilityGlobal(fieldId);
+                });
+            });
+            
+            // Move up buttons
+            tbody.querySelectorAll('.field-move-up').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if(!this.disabled) {
+                        const fieldId = this.getAttribute('data-field-id');
+                        moveFieldUpGlobal(fieldId);
+                    }
+                });
+            });
+            
+            // Move down buttons
+            tbody.querySelectorAll('.field-move-down').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if(!this.disabled) {
+                        const fieldId = this.getAttribute('data-field-id');
+                        moveFieldDownGlobal(fieldId);
+                    }
+                });
+            });
+        }
+
+        function openEditFieldModal(fieldId) {
+            const field = allFields.find(f => f.id == fieldId);
+            if(!field) return;
+            
+            document.getElementById('edit-field-id').value = fieldId;
+            document.getElementById('edit-field-name').value = field.name;
+            document.getElementById('edit-field-type').value = field.type;
+            document.getElementById('edit-field-visibility').value = field.visibility;
+            
+            document.getElementById('edit-field-modal').classList.add('open');
+        }
+
+        function closeEditFieldModal() {
+            document.getElementById('edit-field-modal').classList.remove('open');
+        }
+
+        function saveEditField(e) {
+            e.preventDefault();
+            
+            const fieldId = document.getElementById('edit-field-id').value;
+            const newName = document.getElementById('edit-field-name').value;
+            const newType = document.getElementById('edit-field-type').value;
+            const newVisibility = document.getElementById('edit-field-visibility').value;
+            
+            const field = allFields.find(f => f.id == fieldId);
+            if(field) {
+                field.name = newName;
+                field.type = newType;
+                field.visibility = newVisibility;
+                
+                // Also update in customFields if it's a custom field
+                const customField = customFields.find(f => f.id == fieldId);
+                if(customField) {
+                    customField.name = newName;
+                    customField.type = newType;
+                    customField.visibility = newVisibility;
+                    localStorage.setItem('ms_fields', JSON.stringify(customFields));
+                }
+                
+                localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                renderAllFieldsTable();
+                closeEditFieldModal();
+                showToast("Field updated successfully");
+            }
+        }
+
+        function toggleFieldVisibilityGlobal(fieldId) {
+            const field = allFields.find(f => f.id == fieldId);
+            if(field) {
+                field.visibility = field.visibility === 'public' ? 'private' : 'public';
+                localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                renderAllFieldsTable();
+                showToast("Field visibility updated");
+            }
+        }
+
+        function moveFieldUpGlobal(fieldId) {
+            const sorted = [...allFields].sort((a, b) => a.order - b.order);
+            const idx = sorted.findIndex(f => f.id == fieldId);
+            if(idx > 0) {
+                const temp = sorted[idx].order;
+                sorted[idx].order = sorted[idx - 1].order;
+                sorted[idx - 1].order = temp;
+                allFields = sorted;
+                localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                renderAllFieldsTable();
+            }
+        }
+
+        function moveFieldDownGlobal(fieldId) {
+            const sorted = [...allFields].sort((a, b) => a.order - b.order);
+            const idx = sorted.findIndex(f => f.id == fieldId);
+            if(idx < sorted.length - 1) {
+                const temp = sorted[idx].order;
+                sorted[idx].order = sorted[idx + 1].order;
+                sorted[idx + 1].order = temp;
+                allFields = sorted;
+                localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                renderAllFieldsTable();
+            }
+        }
+
+        function deleteFieldGlobal(fieldId) {
+            const field = allFields.find(f => f.id == fieldId);
+            if(!field) return;
+            
+            const message = field.isStandard ? "Hide this standard field?" : "Delete this custom field?";
+            if(confirm(message)) {
+                if(field.isStandard) {
+                    // For standard fields, just mark as deleted rather than removing
+                    field.deleted = true;
+                } else {
+                    // For custom fields, actually remove them
+                    allFields = allFields.filter(f => f.id != fieldId);
+                    customFields = customFields.filter(f => f.id != fieldId);
+                    localStorage.setItem('ms_fields', JSON.stringify(customFields));
+                }
+                localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                renderAllFieldsTable();
+                showToast("Field deleted");
+            }
+        }
+
+        function renderProfileTable() {
+            const tbody = document.querySelector('#profile-table tbody');
+            if(!tbody) {
+                console.error("Profile table tbody not found!");
+                return;
+            }
+            
+            tbody.innerHTML = '';
+            
+            if(profiles.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px;">No profiles yet</td></tr>';
+                return;
+            }
+
+            // Helper: check if profile has any non-empty private custom-field values
+            function hasProfilePrivateFields(profile) {
+                if(!profile || !profile.customFieldValues) return false;
+                return allFields.some(f => !f.isStandard && f.visibility === 'private' && profile.customFieldValues[f.id] && profile.customFieldValues[f.id].toString().trim() !== '');
+            }
+
+            profiles.forEach(p => {
+                const fixButton = p.status === 'active' 
+                    ? `<button class="btn btn-success profile-fix-btn" data-id="${p.id}"><i class="fas fa-check"></i> Fix</button>`
+                    : `<button class="btn btn-warning profile-unfix-btn" data-id="${p.id}"><i class="fas fa-undo"></i> Unfix</button>`;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${p.name}</td>
+                    <td>${p.phone || 'N/A'}</td>
+                    <td style="text-align:center;">${hasProfilePrivateFields(p) ? '<span title="Has private data" style="color:#d32f2f; font-weight:bold;">🔒</span>' : ''}</td>
+                    <td><span style="padding:4px 8px; border-radius:4px; background:${p.status==='fixed'?'#C8E6C9':'#FFF9C4'}">${p.status.toUpperCase()}</span></td>
+                    <td>
+                        <button class="btn btn-primary profile-edit-btn" data-id="${p.id}" style="margin-bottom:5px;">Edit</button>
+                        ${fixButton}
+                        <button class="btn btn-danger profile-delete-btn" data-id="${p.id}">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            // Attach event listeners using event delegation
+            attachProfileTableListeners();
+        }
+        
+        function attachProfileTableListeners() {
+            const tbody = document.querySelector('#profile-table tbody');
+            
+            // Delete buttons
+            tbody.querySelectorAll('.profile-delete-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const id = parseInt(this.getAttribute('data-id'));
+                    deleteProfile(id);
+                });
+            });
+            
+            // Edit buttons
+            tbody.querySelectorAll('.profile-edit-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const id = parseInt(this.getAttribute('data-id'));
+                    editProfile(id);
+                });
+            });
+            
+            // Fix buttons
+            tbody.querySelectorAll('.profile-fix-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const id = parseInt(this.getAttribute('data-id'));
+                    setProfileFixed(id);
+                });
+            });
+            
+            // Unfix buttons
+            tbody.querySelectorAll('.profile-unfix-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const id = parseInt(this.getAttribute('data-id'));
+                    setProfileUnfixed(id);
+                });
+            });
+        }
+
+        function setProfileFixed(id) {
+            const idx = profiles.findIndex(p => p.id === id);
+            if(idx !== -1) {
+                profiles[idx].status = 'fixed';
+                // default newly fixed profiles to pending payment
+                profiles[idx].paymentStatus = profiles[idx].paymentStatus || 'pending';
+                saveProfiles();
+                renderProfileTable();
+                showToast("Profile marked as Fixed (payment pending)");
+            }
+        }
+
+        function setProfileUnfixed(id) {
+            const idx = profiles.findIndex(p => p.id === id);
+            if(idx !== -1) {
+                profiles[idx].status = 'active';
+                localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+                renderProfileTable();
+                showToast("Profile marked as Active");
+            }
+        }
+
+        function deleteProfile(id) {
+            if(confirm("Delete this profile? This action cannot be undone.")) {
+                try {
+                    const initialLength = profiles.length;
+                    profiles = profiles.filter(p => p.id !== id);
+                    
+                    if(profiles.length < initialLength) {
+                        localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+                        renderProfileTable();
+                        showToast("Profile Deleted Successfully");
+                    } else {
+                        showToast("Profile not found");
+                    }
+                } catch(err) {
+                    showToast("Error deleting profile: " + err.message);
+                    console.error("Delete error:", err);
+                }
+            }
+        }
+
+        // --- CUSTOM FIELDS MANAGEMENT ---
+        function renderFieldsTable() {
+            // Now unified with renderAllFieldsTable - all fields managed in one place
+            renderAllFieldsTable();
+        }
+
+        function toggleFieldVisibility(id) {
+            // Now using unified global function
+            toggleFieldVisibilityGlobal(id);
+        }
+
+        function moveFieldUp(id) {
+            // Now using unified global function
+            moveFieldUpGlobal(id);
+        }
+
+        function moveFieldDown(id) {
+            // Now using unified global function
+            moveFieldDownGlobal(id);
+        }
+
+        function deleteField(id) {
+            // Now using unified global function
+            deleteFieldGlobal(id);
+        }
+
+        function addCustomField() {
+            const name = document.getElementById('new-field-name').value;
+            const type = document.getElementById('new-field-type').value;
+            
+            if(!name) return showToast("Field name required");
+            
+            const maxOrder = allFields.length > 0 ? Math.max(...allFields.map(f => f.order)) : 0;
+            const newField = {
+                id: Date.now(),
+                name: name,
+                type: type,
+                visibility: 'public',
+                order: maxOrder + 1,
+                isStandard: false
+            };
+            
+            allFields.push(newField);
+            customFields.push(newField);
+            localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+            localStorage.setItem('ms_fields', JSON.stringify(customFields));
+            
+            document.getElementById('new-field-name').value = '';
+            document.getElementById('new-field-type').value = 'text';
+            
+            renderAllFieldsTable();
+            showToast("Field added successfully");
+        }
+
+        // --- ADMIN MANAGEMENT ---
+        function renderAdminTable() {
+            const tbody = document.querySelector('#admin-table tbody');
+            tbody.innerHTML = '';
+            
+            if(admins.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="2" style="text-align:center; padding:20px;">No admins yet</td></tr>';
+                return;
+            }
+            
+            admins.forEach(a => {
+                const row = document.createElement('tr');
+                let deleteBtn = '';
+                if(a.id !== 1) {
+                    deleteBtn = `<button class="btn btn-danger admin-delete-btn" data-admin-id="${a.id}">Delete</button>`;
+                }
+                row.innerHTML = `
+                    <td>${a.user}</td>
+                    <td>
+                        <button class="btn btn-secondary admin-update-btn" data-admin-id="${a.id}">Update Pwd</button>
+                        ${deleteBtn}
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            // Attach event listeners using event delegation
+            attachAdminTableListeners();
+        }
+        
+        function attachAdminTableListeners() {
+            const tbody = document.querySelector('#admin-table tbody');
+            
+            // Delete admin buttons
+            tbody.querySelectorAll('.admin-delete-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const adminId = parseInt(this.getAttribute('data-admin-id'));
+                    deleteAdmin(adminId);
+                });
+            });
+            
+            // Update admin password buttons
+            tbody.querySelectorAll('.admin-update-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const adminId = parseInt(this.getAttribute('data-admin-id'));
+                    updateAdmin(adminId);
+                });
+            });
+        }
+
+        function addAdmin() {
+            const u = document.getElementById('new-admin-user').value;
+            const p = document.getElementById('new-admin-pass').value;
+            if(!u || !p) return showToast("Fill all fields");
+            
+            admins.push({ id: Date.now(), user: u, pass: p });
+            localStorage.setItem('ms_admins', JSON.stringify(admins));
+            document.getElementById('new-admin-user').value = '';
+            document.getElementById('new-admin-pass').value = '';
+            renderAdminTable();
+            showToast("Admin Added");
+        }
+
+        function updateAdmin(id) {
+            const newPass = prompt("Enter new password:");
+            if(newPass) {
+                const idx = admins.findIndex(a => a.id === id);
+                if(idx !== -1) {
+                    admins[idx].pass = newPass;
+                    localStorage.setItem('ms_admins', JSON.stringify(admins));
+                    showToast("Password Updated Successfully!");
+                }
+            }
+        }
+
+        function deleteAdmin(id) {
+            if(confirm("Delete this admin?")) {
+                admins = admins.filter(a => a.id !== id);
+                localStorage.setItem('ms_admins', JSON.stringify(admins));
+                renderAdminTable();
+                showToast("Admin Deleted");
+            }
+        }
+
+        // --- UTILS ---
+        function showToast(msg) {
+            const x = document.getElementById("toast");
+            x.innerText = msg;
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(e) {
+            const profileModal = document.getElementById('profile-modal');
+            const galleryModal = document.getElementById('gallery-modal');
+            const editFieldModal = document.getElementById('edit-field-modal');
+            
+            if (e.target === profileModal) closeModal();
+            if (e.target === galleryModal) closeGalleryModal();
+            if (e.target === editFieldModal) closeEditFieldModal();
+        }
+
+        // Keyboard navigation for gallery
+        document.addEventListener('keydown', function(e) {
+            if(document.getElementById('gallery-modal').classList.contains('open')) {
+                if(e.key === 'ArrowRight') nextImage();
+                if(e.key === 'ArrowLeft') prevImage();
+                if(e.key === 'Escape') closeGalleryModal();
+            }
+        });
+    </script>
+</body>
+</html>
