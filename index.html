@@ -1471,6 +1471,7 @@
             const u = document.getElementById('admin-user').value;
             const p = document.getElementById('admin-pass').value;
             
+            // First try local admins array
             if(admins.find(a => a.user === u && a.pass === p)) {
                 isAdminLoggedIn = true;
                 document.getElementById('nav-fixed-li').style.display = 'block';
@@ -1480,6 +1481,27 @@
                 renderProfileTable();
                 renderAdminTable();
                 showToast("Welcome Admin");
+            } else if(window.refreshAdminsFromFirestore) {
+                // If not found locally, try fetching latest admins from Firestore then retry
+                showToast('Checking remote admin list...');
+                window.refreshAdminsFromFirestore().then(refreshed => {
+                    if(refreshed && admins.find(a => a.user === u && a.pass === p)) {
+                        isAdminLoggedIn = true;
+                        document.getElementById('nav-fixed-li').style.display = 'block';
+                        document.getElementById('admin-login').style.display = 'none';
+                        document.getElementById('admin-dashboard').style.display = 'block';
+                        renderAllFieldsTable();
+                        renderProfileTable();
+                        renderAdminTable();
+                        showToast("Welcome Admin (remote)");
+                    } else {
+                        showToast("Invalid Login");
+                    }
+                }).catch(err => {
+                    console.error('refreshAdminsFromFirestore error', err);
+                    showToast('Invalid Login');
+                });
+                return; // async retry in progress
             } else {
                 showToast("Invalid Login");
             }
@@ -2258,7 +2280,7 @@
   const analytics = getAnalytics(app);
   
     // Firestore imports and helper functions (optional runtime):
-    import { getFirestore, collection, doc, setDoc, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    import { getFirestore, collection, doc, setDoc, getDocs, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
     // Auth + Realtime Database imports
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
     import { getDatabase, ref as rtdbRef, set as rtdbSet, get as rtdbGet } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
@@ -2426,6 +2448,104 @@
             console.error('loadDataFromFirestore error', err);
         }
     }
+
+    // Setup real-time listeners (onSnapshot) so changes in Firestore are reflected live across clients
+    function setupRealtimeListeners() {
+        try {
+            // Profiles listener
+            const profilesCol = collection(db, 'profiles');
+            onSnapshot(profilesCol, snap => {
+                const loaded = [];
+                snap.forEach(d => loaded.push(d.data()));
+                if(loaded.length) {
+                    profiles = loaded;
+                    localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+                    console.log('Realtime: profiles updated', profiles);
+                    try { renderProfiles(); } catch(e) {}
+                    try { renderProfileTable(); } catch(e) {}
+                    try { renderFixedMatches(); } catch(e) {}
+                    try { renderPaymentCompleted(); } catch(e) {}
+                }
+            }, err => console.error('profiles onSnapshot error', err));
+
+            // Fields listener
+            const fieldsCol = collection(db, 'fields');
+            onSnapshot(fieldsCol, snap => {
+                const loaded = [];
+                snap.forEach(d => loaded.push(d.data()));
+                customFields = loaded;
+                localStorage.setItem('ms_fields', JSON.stringify(customFields));
+                console.log('Realtime: customFields updated', customFields);
+                try { renderNewProfileCustomFields(); } catch(e) {}
+                try { renderAllFieldsTable(); } catch(e) {}
+            }, err => console.error('fields onSnapshot error', err));
+
+            // allFields listener
+            const allFieldsCol = collection(db, 'allFields');
+            onSnapshot(allFieldsCol, snap => {
+                const loaded = [];
+                snap.forEach(d => loaded.push(d.data()));
+                allFields = loaded;
+                localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                console.log('Realtime: allFields updated', allFields);
+                try { renderAllFieldsTable(); } catch(e) {}
+                try { renderNewProfileCustomFields(); } catch(e) {}
+            }, err => console.error('allFields onSnapshot error', err));
+
+            // admins listener
+            const adminsCol = collection(db, 'admins');
+            onSnapshot(adminsCol, snap => {
+                const loaded = [];
+                snap.forEach(d => loaded.push(d.data()));
+                admins = loaded;
+                localStorage.setItem('ms_admins', JSON.stringify(admins));
+                console.log('Realtime: admins updated', admins);
+                try { renderAdminTable(); } catch(e) {}
+            }, err => console.error('admins onSnapshot error', err));
+
+            console.log('Realtime listeners initialized');
+        } catch (err) {
+            console.error('setupRealtimeListeners error', err);
+        }
+    }
+
+    // Initialize realtime listeners immediately if db exists
+    try { if(db) setupRealtimeListeners(); } catch(e) { console.warn('Could not initialize realtime listeners', e); }
+
+    // Refresh admins from Firestore on-demand and update local state
+    window.refreshAdminsFromFirestore = async function() {
+        try {
+            const adminsSnap = await getDocs(collection(db, 'admins'));
+            const loadedAdmins = [];
+            adminsSnap.forEach(d => loadedAdmins.push(d.data()));
+            if(loadedAdmins.length) {
+                window.admins = loadedAdmins;
+                localStorage.setItem('ms_admins', JSON.stringify(window.admins));
+                console.log('Admins refreshed from Firestore', window.admins);
+                return true;
+            }
+            return false;
+        } catch (err) {
+            console.error('refreshAdminsFromFirestore error', err);
+            return false;
+        }
+    }
+
+    // Attempt to load remote data automatically on page load.
+    // This will try to fetch profiles/fields/admins from Firestore and populate the app.
+    // If remote read is denied (security rules) or fails, we'll log and leave local data intact.
+    window.addEventListener('DOMContentLoaded', async function() {
+        try {
+            // Only attempt auto-load if firebase is initialized
+            if(typeof loadDataFromFirestore === 'function') {
+                await loadDataFromFirestore();
+            }
+        } catch(err) {
+            console.warn('Auto loadDataFromFirestore failed:', err);
+            // show a short toast so the admin knows remote load didn't happen
+            try { showToast('Could not load remote data (see console)'); } catch(e) {}
+        }
+    });
 </script>
 </body>
 </html>
