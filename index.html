@@ -55,6 +55,15 @@
         .form-control { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; background: #fff; transition: 0.3s; }
         .form-control:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 10px rgba(255,64,129,0.2); }
 
+    /* --- Contact Page Grid --- */
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; align-items: start; }
+    .contact-card { background: var(--white); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid #eee; text-align: center; }
+    .contact-card h3 { margin-bottom: 10px; color: var(--accent-color); font-size: 1.1rem; }
+    .contact-card .contact-detail { color: #444; font-weight: 600; margin-bottom: 12px; }
+    .contact-card .contact-actions { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    .contact-card .contact-actions a, .contact-card .contact-actions button { min-width: 140px; }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+
         /* --- Home --- */
         .hero { text-align: center; padding: 3rem; background: rgba(255,255,255,0.9); border-radius: 20px; box-shadow: var(--shadow); border: 2px solid var(--white); }
         .quotation-box { background: #FFF3E0; border-left: 5px solid var(--secondary-color); padding: 1.5rem; margin: 2rem 0; font-style: italic; font-size: 1.2rem; color: #E65100; border-radius: 0 10px 10px 0; }
@@ -210,6 +219,7 @@
                     <li><a onclick="showPage('profiles')" id="nav-profiles">Profiles</a></li>
                     <li id="nav-fixed-li" style="display:none;"><a onclick="showPage('fixed-matches')" id="nav-fixed">Fixed Matches</a></li>
                     <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+                    <li><a onclick="openUserModal()" id="nav-user">User</a></li>
                     <li><a onclick="showPage('admin')" id="nav-admin">Admin</a></li>
                 </ul>
             </nav>
@@ -304,19 +314,39 @@
 
         <!-- CONTACT -->
         <section id="contact" class="page-section">
-            <div class="hero" style="max-width:600px; margin:0 auto;">
-                <h2>Contact Us</h2>
-                <div class="form-group">
-                    <label><i class="fas fa-envelope"></i> Email</label>
-                    <div style="padding:10px; background:#eee; border-radius:5px;">MANISREEJAMARIAGELINKS@GMAIL.COM</div>
-                </div>
-                <div class="form-group">
-                    <label><i class="fas fa-phone"></i> Phone</label>
-                    <div style="padding:10px; background:#eee; border-radius:5px;">7702694149, 9441931031</div>
-                </div>
-                <div class="form-group">
-                    <label><i class="fab fa-whatsapp"></i> WhatsApp</label>
-                    <a href="https://wa.me/917702694149" target="_blank" class="btn btn-success" style="width:100%; justify-content:center;">Chat Now</a>
+            <div class="hero" style="max-width:1100px; margin:0 auto; text-align:left;">
+                <h2 style="text-align:center;">Contact Us</h2>
+
+                <div class="contact-grid">
+                    <!-- Phone Numbers -->
+                    <div class="contact-card" id="contact-phone">
+                        <h3><i class="fas fa-phone"></i> Phone Numbers</h3>
+                        <div class="contact-detail">Call us on the numbers below</div>
+                        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+                            <a href="tel:+917702694149" class="btn btn-primary" style="width:100%;max-width:320px;justify-content:center;"><i class="fas fa-phone-alt"></i> +91 7702694149</a>
+                            <a href="tel:+919441931031" class="btn btn-primary" style="width:100%;max-width:320px;justify-content:center;"><i class="fas fa-phone-alt"></i> +91 9441931031</a>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="contact-card" id="contact-whatsapp">
+                        <h3><i class="fab fa-whatsapp"></i> WhatsApp</h3>
+                        <div class="contact-detail">Chat with us on WhatsApp</div>
+                        <div class="contact-actions">
+                            <a href="https://wa.me/917702694149" target="_blank" class="btn btn-success"><i class="fab fa-whatsapp"></i> Chat +91 7702694149</a>
+                            <a href="https://wa.me/919441931031" target="_blank" class="btn btn-success"><i class="fab fa-whatsapp"></i> Chat +91 9441931031</a>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-card" id="contact-email">
+                        <h3><i class="fas fa-envelope"></i> Email</h3>
+                        <div class="contact-detail">Send us an email</div>
+                        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+                            <a href="mailto:MANISREEJAMARIAGELINKS@GMAIL.COM" class="btn btn-secondary" style="width:100%;max-width:320px;justify-content:center;"><i class="fas fa-paper-plane"></i> MANISREEJAMARIAGELINKS@GMAIL.COM</a>
+                            <button class="btn btn-primary" id="copy-email-btn" style="width:100%;max-width:320px;justify-content:center;">Copy Email</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -397,6 +427,41 @@
             </div>
         </section>
     </main>
+
+    <!-- USER LOGIN / SIGNUP MODAL -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content" style="max-width:480px;">
+            <span class="close-modal" onclick="closeUserModal()">&times;</span>
+            <h2 id="user-modal-title"><i class="fas fa-user"></i> User Access</h2>
+
+            <div style="display:flex; gap:10px; margin-bottom:15px;">
+                <button id="user-tab-signin" class="btn btn-primary" style="flex:1;" onclick="showUserTab('signin')">Sign In</button>
+                <button id="user-tab-signup" class="btn btn-secondary" style="flex:1;" onclick="showUserTab('signup')">Sign Up</button>
+            </div>
+
+            <div id="user-tab-contents">
+                <div id="user-signin" style="display:block;">
+                    <div class="form-group"><label>Email</label><input type="email" id="ui-email" class="form-control" placeholder="you@example.com"></div>
+                    <div class="form-group"><label>Password</label><input type="password" id="ui-password" class="form-control"></div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-success" style="flex:1;" onclick="handleUserSignIn()"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+                        <button class="btn btn-danger" style="flex:1;" onclick="handleUserLogout()">Logout</button>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <button class="btn btn-secondary" style="width:100%;" onclick="handleForgotPassword()"><i class="fas fa-key"></i> Forgot Password?</button>
+                    </div>
+                </div>
+
+                <div id="user-signup" style="display:none; margin-top:12px;">
+                    <div class="form-group"><label>New Email</label><input type="email" id="su-email" class="form-control" placeholder="you@example.com"></div>
+                    <div class="form-group"><label>New Password</label><input type="password" id="su-password" class="form-control"></div>
+                    <div style="text-align:center; margin-top:10px;">
+                        <button id="su-submit" class="btn btn-primary" style="width:100%;" onclick="handleUserSignUp()" disabled><i class="fas fa-user-plus"></i> Create User (requires sign-in)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- PROFILE MODAL -->
     <div id="profile-modal" class="modal">
@@ -491,13 +556,17 @@
     <script>
         // --- DATA INITIALIZATION ---
         const initialProfiles = [
-            { id: 1, name: "Arjun Rao", age: 28, gender: "Male", job: "Software Engineer", phone: "7702694149", caste: "Kamma", religion: "Hindu", location: "Hyderabad", height: "178", weight: "75", privateKey: "987654", status: "active", bio: "Looking for a simple partner.", photos: ["https://picsum.photos/seed/arjun/300/300", "https://picsum.photos/seed/arjun1/300/300"] },
-            { id: 2, name: "Priya Sharma", age: 25, gender: "Female", job: "Doctor", phone: "9441931031", caste: "Brahmin", religion: "Hindu", location: "Vijayawada", height: "165", weight: "55", privateKey: "123456", status: "active", bio: "Doctor by profession.", photos: ["https://picsum.photos/seed/priya/300/300", "https://picsum.photos/seed/priya1/300/300"] },
+            { id: 1, name: "Arjun Rao", age: 28, gender: "Male", job: "Software Engineer", phone: "7702694149", caste: "Kamma", religion: "Hindu", location: "Hyderabad", height: "178", weight: "75", privateKey: "987654", status: "active", bio: "Looking for a simple partner.", photos: ["https://picsum.photos/seed/arjun/300/300", "https://picsum.photos/seed/arjun1/300/300"], owner: 'demo' },
+            { id: 2, name: "Priya Sharma", age: 25, gender: "Female", job: "Doctor", phone: "9441931031", caste: "Brahmin", religion: "Hindu", location: "Vijayawada", height: "165", weight: "55", privateKey: "123456", status: "active", bio: "Doctor by profession.", photos: ["https://picsum.photos/seed/priya/300/300", "https://picsum.photos/seed/priya1/300/300"], owner: null },
             { id: 3, name: "Rahul Verma", age: 30, gender: "Male", job: "Business", phone: "9876543210", caste: "Vaishya", religion: "Hindu", location: "Delhi", height: "180", weight: "80", privateKey: "555555", status: "fixed", paymentStatus: "pending", bio: "Business owner.", photos: ["https://picsum.photos/seed/rahul/300/300"] }
         ];
 
         const initialAdmins = [
             { id: 1, user: "admin", pass: "admin123" }
+        ];
+
+        const initialUsers = [
+            { id: 1, user: 'demo', pass: 'demo123' }
         ];
 
         const initialFields = [
@@ -515,6 +584,7 @@
 
         let profiles = JSON.parse(localStorage.getItem('ms_profiles')) || initialProfiles;
         let admins = JSON.parse(localStorage.getItem('ms_admins')) || initialAdmins;
+        let users = JSON.parse(localStorage.getItem('ms_users')) || initialUsers;
         let customFields = JSON.parse(localStorage.getItem('ms_fields')) || initialFields;
         let allFields = JSON.parse(localStorage.getItem('ms_allfields')) || standardFields;
         let currentEditingId = null;
@@ -524,6 +594,9 @@
         
         let tempPhotos = [];
         let tempNewProfilePhotos = [];
+        // User auth
+        let isUserSignedIn = false;
+        let currentUser = null;
 
         // --- NAVIGATION ---
         function showPage(pageId) {
@@ -694,6 +767,7 @@
                 </div>
                 <div class="simple-card-actions">
                     <button class="btn btn-success btn-sm payment-completed-btn" data-id="${p.id}" style="flex:1;"><i class="fas fa-check"></i> Done</button>
+                    <button class="btn btn-secondary btn-sm contact-admin-btn" data-id="${p.id}" style="flex:1;"><i class="fas fa-envelope"></i> Contact Admin</button>
                 </div>
             `;
             container.appendChild(card);
@@ -705,6 +779,8 @@
                 e.preventDefault();
                 updatePaymentStatus(parseInt(this.dataset.id), 'completed');
             });
+            const contactBtn = card.querySelector('.contact-admin-btn');
+            if(contactBtn) contactBtn.addEventListener('click', function(e){ e.preventDefault(); contactAdmin(parseInt(this.dataset.id)); });
         }
         
         function updatePaymentStatus(profileId, status) {
@@ -727,6 +803,8 @@
         function saveProfiles() {
             try {
                 localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+                if(window.syncProfilesToFirestore) window.syncProfilesToFirestore(profiles).catch(err => console.error('syncProfilesToFirestore error', err));
+                if(window.syncProfilesToRTDB) window.syncProfilesToRTDB(profiles).catch(err => console.error('syncProfilesToRTDB error', err));
             } catch (err) {
                 console.error('Failed to save profiles', err);
             }
@@ -858,8 +936,9 @@
         function saveNewProfile(event) {
             event.preventDefault();
             
-            if(!isAdminLoggedIn) {
-                alert('Only admins can create profiles. Please login to admin panel first.');
+            // Allow admin or signed-in users to create profiles
+            if(!isAdminLoggedIn && !isUserSignedIn) {
+                alert('Please sign in or login as admin to create profiles.');
                 return;
             }
             
@@ -892,10 +971,12 @@
                 customFieldValues: customFieldValues,
                 status: 'active',
                 paymentStatus: 'pending'
+                ,owner: isUserSignedIn && currentUser ? currentUser.user : null
             };
             
-            profiles.push(newProfile);
-            localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+                    profiles.push(newProfile);
+                // persist and sync
+                saveProfiles();
             
             showToast('Profile created successfully!');
             
@@ -935,14 +1016,13 @@
             const hasMultiplePhotos = p.photos && p.photos.length > 1;
             const paymentBadgeColor = p.paymentStatus === 'completed' ? '#00E676' : '#FF6D00';
             const paymentBadgeText = p.paymentStatus === 'completed' ? 'Payment Done' : 'Pending';
-            
             const card = document.createElement('div');
             card.className = 'profile-card';
             card.innerHTML = `
                 <div class="card-img-container">
                     <div class="card-badge">${isFixed ? 'FIXED' : 'Active'}</div>
                     ${isFixed && isAdminLoggedIn ? `<div style="position:absolute; top:50px; right:10px; background:${paymentBadgeColor}; color:white; padding:5px 10px; border-radius:15px; font-weight:bold; font-size:0.75rem;">${paymentBadgeText}</div>` : ''}
-                    <img src="${mainImg}" class="card-img-top" alt="Photo" title="Click to view full gallery" onclick="openGallery(${JSON.stringify(p.photos)}, 0)">
+                    <img src="${mainImg}" class="card-img-top" alt="Photo" title="Click to view full gallery">
                     <div style="position:absolute; bottom:15px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.6); color:white; padding:8px 16px; border-radius:20px; font-size:0.85rem; display:flex; align-items:center; gap:8px;">
                         <i class="fas fa-images"></i> ${hasMultiplePhotos ? p.photos.length + ' Photos' : '1 Photo'}
                     </div>
@@ -951,62 +1031,88 @@
                     <h3 class="card-title">${p.name}</h3>
                     <p class="card-text"><i class="fas fa-birthday-cake"></i> Age: ${p.age} | <i class="fas fa-user"></i> ${p.gender}</p>
                 </div>
-                <div class="card-actions">
-                    ${isFixed && isAdminLoggedIn ? `
-                    <button class="btn btn-success payment-completed-btn" data-id="${p.id}" style="flex:1; font-size:0.8rem;" title="Mark Payment as Completed"><i class="fas fa-check"></i> Done</button>
-                    <button class="btn btn-danger payment-pending-btn" data-id="${p.id}" style="flex:1; font-size:0.8rem;" title="Mark Payment as Pending"><i class="fas fa-clock"></i> Pending</button>
-                    ` : `
-                    <button class="btn btn-primary profile-view-btn" data-id="${p.id}" style="flex:1">View</button>
-                    <button class="btn btn-info profile-edit-btn-customer" data-id="${p.id}" style="flex:1">Edit</button>
-                    `}
-                </div>
+                <div class="card-actions" style="display:flex; gap:8px;"></div>
             `;
-            container.appendChild(card);
-            
-            // Attach event listeners
+
+            // click gallery on image
+            const imgEl = card.querySelector('.card-img-top');
+            imgEl.addEventListener('click', () => openGallery(p.photos || [], 0));
+
+            // build actions depending on role/ownership
+            const actions = card.querySelector('.card-actions');
+            // View button always available
+            const viewBtn = document.createElement('button');
+            viewBtn.className = 'btn btn-primary';
+            viewBtn.style.flex = '1';
+            viewBtn.textContent = 'View';
+            viewBtn.dataset.id = p.id;
+            actions.appendChild(viewBtn);
+
+            // Edit allowed for admin or profile owner only
+            const isOwner = isUserSignedIn && currentUser && p.owner && (p.owner === currentUser.user);
             if(isFixed && isAdminLoggedIn) {
-                const completedBtn = card.querySelector('.payment-completed-btn');
-                const pendingBtn = card.querySelector('.payment-pending-btn');
-                
-                if(completedBtn) completedBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    updatePaymentStatus(parseInt(this.dataset.id), 'completed');
-                });
-                
-                if(pendingBtn) pendingBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    updatePaymentStatus(parseInt(this.dataset.id), 'pending');
-                });
+                const comp = document.createElement('button');
+                comp.className = 'btn btn-success'; comp.style.flex = '1'; comp.dataset.id = p.id; comp.innerHTML = '<i class="fas fa-check"></i> Done';
+                const pend = document.createElement('button');
+                pend.className = 'btn btn-danger'; pend.style.flex = '1'; pend.dataset.id = p.id; pend.innerHTML = '<i class="fas fa-clock"></i> Pending';
+                actions.appendChild(comp);
+                actions.appendChild(pend);
+
+                comp.addEventListener('click', function(e){ e.preventDefault(); updatePaymentStatus(parseInt(this.dataset.id), 'completed'); });
+                pend.addEventListener('click', function(e){ e.preventDefault(); updatePaymentStatus(parseInt(this.dataset.id), 'pending'); });
             } else {
-                const viewBtn = card.querySelector('.profile-view-btn');
-                const editBtn = card.querySelector('.profile-edit-btn-customer');
-                
-                if(viewBtn) viewBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    editProfile(parseInt(this.dataset.id));
-                });
-                
-                if(editBtn) editBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    editProfile(parseInt(this.dataset.id));
-                });
+                if(isAdminLoggedIn || isOwner) {
+                    const editBtn = document.createElement('button');
+                    editBtn.className = 'btn btn-info'; editBtn.style.flex = '1'; editBtn.textContent = 'Edit'; editBtn.dataset.id = p.id;
+                    actions.appendChild(editBtn);
+                    editBtn.addEventListener('click', function(e){ e.preventDefault(); editProfile(parseInt(this.dataset.id)); });
+                }
             }
+
+            // View handler
+            viewBtn.addEventListener('click', function(e){ e.preventDefault(); viewProfile(parseInt(this.dataset.id)); });
+
+            // Contact Admin button for non-owner (and non-admin)
+            if(!(isAdminLoggedIn || (isUserSignedIn && currentUser && p.owner && p.owner === currentUser.user))) {
+                const contactBtn = document.createElement('button');
+                contactBtn.className = 'btn btn-secondary'; contactBtn.style.flex = '1'; contactBtn.textContent = 'Contact Admin';
+                contactBtn.addEventListener('click', function(e){ e.preventDefault(); contactAdmin(p.id); });
+                actions.appendChild(contactBtn);
+            }
+
+            container.appendChild(card);
         }
 
         // --- MODAL & FORM LOGIC ---
         function openAddProfileModal() {
             resetForm();
+            currentEditingId = null;
             document.getElementById('modal-title').innerText = "Add New Profile";
             renderCustomFieldsInForm();
+            // enable inputs for creating (admin or signed-in user)
+            const inputs = document.querySelectorAll('#profile-form input, #profile-form textarea, #profile-form select, #p-files');
+            inputs.forEach(el => {
+                if(el.id !== 'p-id') el.disabled = !(isAdminLoggedIn || isUserSignedIn);
+            });
+            // show save button
+            if(document.getElementById('form-actions')) document.getElementById('form-actions').style.display = 'block';
             document.getElementById('profile-modal').classList.add('open');
         }
 
         function editProfile(id) {
             const p = profiles.find(x => x.id === id);
             if(!p) return;
+            // Only admin or owner allowed to edit. Others see view-only modal.
+            const isOwner = isUserSignedIn && currentUser && p.owner && (p.owner === currentUser.user);
+            if(!isAdminLoggedIn && !isOwner) {
+                // fallback to view mode
+                viewProfile(id);
+                return;
+            }
+
             resetForm();
             currentEditingId = id;
-            
+
             // Fill Basic (only standard fields that exist)
             document.getElementById('p-name').value = p.name;
             document.getElementById('p-age').value = p.age;
@@ -1020,14 +1126,14 @@
             renderProfileImages();
             renderMediaPreviews();
 
-            // Enable all form fields for all users
+            // Enable all form fields for admin/owner
             const inputs = document.querySelectorAll('#profile-form input, #profile-form textarea, #profile-form select, #p-files');
             inputs.forEach(el => el.disabled = false);
 
-            // Show Save Button for all users
+            // Show Save Button
             document.getElementById('form-actions').style.display = 'block';
-            
-            // Set title to "Edit Profile" for all users
+
+            // Title
             document.getElementById('modal-title').innerText = "Edit Profile";
             document.getElementById('profile-modal').classList.add('open');
         }
@@ -1078,6 +1184,36 @@
             } else {
                 alert("Incorrect Private Key. Cannot edit profile.");
             }
+        }
+
+        // View-only modal for non-owners: hides private fields and disables editing
+        function viewProfile(id) {
+            const p = profiles.find(x => x.id === id);
+            if(!p) return;
+            resetForm();
+            currentEditingId = id;
+
+            document.getElementById('p-name').value = p.name;
+            document.getElementById('p-age').value = p.age;
+            document.getElementById('p-gender').value = p.gender;
+
+            // Render only public fields (or if owner/admin show all)
+            renderCustomFieldsInForm(p.customFieldValues || {});
+
+            // Photos
+            tempPhotos = p.photos || [];
+            renderProfileImages();
+            renderMediaPreviews();
+
+            // Disable editing on inputs
+            const inputs = document.querySelectorAll('#profile-form input, #profile-form textarea, #profile-form select, #p-files');
+            inputs.forEach(el => el.disabled = true);
+
+            // Hide save button
+            if(document.getElementById('form-actions')) document.getElementById('form-actions').style.display = 'none';
+
+            document.getElementById('modal-title').innerText = "Profile Details";
+            document.getElementById('profile-modal').classList.add('open');
         }
 
         function renderProfileImages() {
@@ -1179,19 +1315,24 @@
             // Get sorted fields from allFields
             const sorted = [...allFields].sort((a, b) => a.order - b.order);
             
-            // Show all custom fields for both admin and users
+            // Show custom fields; hide private fields for non-admins/non-owners when viewing
             const fieldsToShow = sorted.filter(f => !f.isStandard);
-
             fieldsToShow.forEach(field => {
+                // If viewing someone else's profile and field is private, skip
+                if(!isAdminLoggedIn && currentEditingId) {
+                    const prof = profiles.find(p => p.id === currentEditingId);
+                    const isOwner = isUserSignedIn && currentUser && prof && prof.owner && prof.owner === currentUser.user;
+                    if(field.visibility === 'private' && !isOwner) return;
+                }
+
                 const group = document.createElement('div');
                 group.className = 'form-group';
                 const label = document.createElement('label');
                 label.textContent = field.name;
-                // Show private indicator for all users if field is private
                 if(field.visibility === 'private') {
                     label.innerHTML += ' <span style="color:#d32f2f; font-size:0.8rem;"><i class="fas fa-lock"></i> Private</span>';
                 }
-                
+
                 let input;
                 if(field.type === 'textarea') {
                     input = document.createElement('textarea');
@@ -1202,11 +1343,19 @@
                     input.type = 'text';
                     input.className = 'form-control';
                 }
-                
+
                 input.id = 'field-' + field.id;
                 input.value = values[field.id] || '';
-                input.disabled = !isAdminLoggedIn && currentEditingId && profiles.find(p => p.id === currentEditingId).status !== 'active';
-                
+                // disable editing unless admin or owner
+                if(currentEditingId) {
+                    const prof = profiles.find(p => p.id === currentEditingId);
+                    const isOwner = isUserSignedIn && currentUser && prof && prof.owner && prof.owner === currentUser.user;
+                    input.disabled = !(isAdminLoggedIn || isOwner);
+                } else {
+                    // creation mode: allow admin or signed-in user to input
+                    input.disabled = !(isAdminLoggedIn || isUserSignedIn);
+                }
+
                 group.appendChild(label);
                 group.appendChild(input);
                 container.appendChild(group);
@@ -1280,7 +1429,8 @@
                 photos: tempPhotos,
                 customFieldValues: customFieldValues,
                 status: currentEditingId ? (profiles.find(p=>p.id===currentEditingId).status) : 'active',
-                paymentStatus: currentEditingId ? (profiles.find(p=>p.id===currentEditingId).paymentStatus || 'pending') : 'pending'
+                paymentStatus: currentEditingId ? (profiles.find(p=>p.id===currentEditingId).paymentStatus || 'pending') : 'pending',
+                owner: currentEditingId ? (profiles.find(p=>p.id===currentEditingId).owner || null) : (isUserSignedIn && currentUser ? currentUser.user : null)
             };
 
             try {
@@ -1292,7 +1442,7 @@
                     profiles.push(newProfile);
                     showToast("Profile Added!");
                 }
-                localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+                saveProfiles();
                 closeModal();
                 renderProfiles();
                 renderProfileTable();
@@ -1308,6 +1458,8 @@
             document.getElementById('preview-area').innerHTML = '';
             document.getElementById('profile-images-section').innerHTML = '';
             document.getElementById('custom-fields-container').innerHTML = '';
+            // hide save actions by default until edit mode
+            if(document.getElementById('form-actions')) document.getElementById('form-actions').style.display = 'none';
         }
 
         function closeModal() {
@@ -1474,9 +1626,13 @@
                     customField.type = newType;
                     customField.visibility = newVisibility;
                     localStorage.setItem('ms_fields', JSON.stringify(customFields));
+                    if(window.syncFieldsToFirestore) window.syncFieldsToFirestore(customFields).catch(err => console.error('syncFieldsToFirestore error', err));
+                    if(window.syncFieldsToRTDB) window.syncFieldsToRTDB(customFields).catch(err => console.error('syncFieldsToRTDB error', err));
                 }
                 
                 localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                if(window.syncAllFieldsToFirestore) window.syncAllFieldsToFirestore(allFields).catch(err => console.error('syncAllFieldsToFirestore error', err));
+                if(window.syncAllFieldsToRTDB) window.syncAllFieldsToRTDB(allFields).catch(err => console.error('syncAllFieldsToRTDB error', err));
                 renderAllFieldsTable();
                 closeEditFieldModal();
                 showToast("Field updated successfully");
@@ -1488,6 +1644,9 @@
             if(field) {
                 field.visibility = field.visibility === 'public' ? 'private' : 'public';
                 localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                // sync updates
+                if(window.syncAllFieldsToFirestore) window.syncAllFieldsToFirestore(allFields).catch(err => console.error('syncAllFieldsToFirestore error', err));
+                if(window.syncAllFieldsToRTDB) window.syncAllFieldsToRTDB(allFields).catch(err => console.error('syncAllFieldsToRTDB error', err));
                 renderAllFieldsTable();
                 showToast("Field visibility updated");
             }
@@ -1502,6 +1661,8 @@
                 sorted[idx - 1].order = temp;
                 allFields = sorted;
                 localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                if(window.syncAllFieldsToFirestore) window.syncAllFieldsToFirestore(allFields).catch(err => console.error('syncAllFieldsToFirestore error', err));
+                if(window.syncAllFieldsToRTDB) window.syncAllFieldsToRTDB(allFields).catch(err => console.error('syncAllFieldsToRTDB error', err));
                 renderAllFieldsTable();
             }
         }
@@ -1515,6 +1676,8 @@
                 sorted[idx + 1].order = temp;
                 allFields = sorted;
                 localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                if(window.syncAllFieldsToFirestore) window.syncAllFieldsToFirestore(allFields).catch(err => console.error('syncAllFieldsToFirestore error', err));
+                if(window.syncAllFieldsToRTDB) window.syncAllFieldsToRTDB(allFields).catch(err => console.error('syncAllFieldsToRTDB error', err));
                 renderAllFieldsTable();
             }
         }
@@ -1533,8 +1696,12 @@
                     allFields = allFields.filter(f => f.id != fieldId);
                     customFields = customFields.filter(f => f.id != fieldId);
                     localStorage.setItem('ms_fields', JSON.stringify(customFields));
+                    if(window.syncFieldsToFirestore) window.syncFieldsToFirestore(customFields).catch(err => console.error('syncFieldsToFirestore error', err));
+                    if(window.syncFieldsToRTDB) window.syncFieldsToRTDB(customFields).catch(err => console.error('syncFieldsToRTDB error', err));
                 }
                 localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+                if(window.syncAllFieldsToFirestore) window.syncAllFieldsToFirestore(allFields).catch(err => console.error('syncAllFieldsToFirestore error', err));
+                if(window.syncAllFieldsToRTDB) window.syncAllFieldsToRTDB(allFields).catch(err => console.error('syncAllFieldsToRTDB error', err));
                 renderAllFieldsTable();
                 showToast("Field deleted");
             }
@@ -1644,7 +1811,7 @@
             const idx = profiles.findIndex(p => p.id === id);
             if(idx !== -1) {
                 profiles[idx].status = 'active';
-                localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+                saveProfiles();
                 renderProfileTable();
                 showToast("Profile marked as Active");
             }
@@ -1657,7 +1824,7 @@
                     profiles = profiles.filter(p => p.id !== id);
                     
                     if(profiles.length < initialLength) {
-                        localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+                        saveProfiles();
                         renderProfileTable();
                         showToast("Profile Deleted Successfully");
                     } else {
@@ -1716,6 +1883,11 @@
             customFields.push(newField);
             localStorage.setItem('ms_allfields', JSON.stringify(allFields));
             localStorage.setItem('ms_fields', JSON.stringify(customFields));
+            // Sync newly added fields to Firestore and RTDB
+            if(window.syncFieldsToFirestore) window.syncFieldsToFirestore(customFields).catch(err => console.error('syncFieldsToFirestore error', err));
+            if(window.syncFieldsToRTDB) window.syncFieldsToRTDB(customFields).catch(err => console.error('syncFieldsToRTDB error', err));
+            if(window.syncAllFieldsToFirestore) window.syncAllFieldsToFirestore(allFields).catch(err => console.error('syncAllFieldsToFirestore error', err));
+            if(window.syncAllFieldsToRTDB) window.syncAllFieldsToRTDB(allFields).catch(err => console.error('syncAllFieldsToRTDB error', err));
             
             document.getElementById('new-field-name').value = '';
             document.getElementById('new-field-type').value = 'text';
@@ -1785,6 +1957,9 @@
             
             admins.push({ id: Date.now(), user: u, pass: p });
             localStorage.setItem('ms_admins', JSON.stringify(admins));
+            // sync to remote DBs if available
+            if(window.syncAdminsToFirestore) window.syncAdminsToFirestore(admins).catch(err => console.error('syncAdminsToFirestore error', err));
+            if(window.syncAdminsToRTDB) window.syncAdminsToRTDB(admins).catch(err => console.error('syncAdminsToRTDB error', err));
             document.getElementById('new-admin-user').value = '';
             document.getElementById('new-admin-pass').value = '';
             renderAdminTable();
@@ -1798,6 +1973,8 @@
                 if(idx !== -1) {
                     admins[idx].pass = newPass;
                     localStorage.setItem('ms_admins', JSON.stringify(admins));
+                    if(window.syncAdminsToFirestore) window.syncAdminsToFirestore(admins).catch(err => console.error('syncAdminsToFirestore error', err));
+                    if(window.syncAdminsToRTDB) window.syncAdminsToRTDB(admins).catch(err => console.error('syncAdminsToRTDB error', err));
                     showToast("Password Updated Successfully!");
                 }
             }
@@ -1807,18 +1984,235 @@
             if(confirm("Delete this admin?")) {
                 admins = admins.filter(a => a.id !== id);
                 localStorage.setItem('ms_admins', JSON.stringify(admins));
+                if(window.syncAdminsToFirestore) window.syncAdminsToFirestore(admins).catch(err => console.error('syncAdminsToFirestore error', err));
+                if(window.syncAdminsToRTDB) window.syncAdminsToRTDB(admins).catch(err => console.error('syncAdminsToRTDB error', err));
                 renderAdminTable();
                 showToast("Admin Deleted");
             }
         }
 
         // --- UTILS ---
+        // --- USER AUTH FUNCTIONS ---
+        function openUserModal() {
+            document.getElementById('user-modal').classList.add('open');
+            showUserTab('signin');
+            updateUserModalState();
+        }
+
+        function closeUserModal() {
+            document.getElementById('user-modal').classList.remove('open');
+        }
+
+        function showUserTab(tab) {
+            document.getElementById('user-signin').style.display = tab === 'signin' ? 'block' : 'none';
+            document.getElementById('user-signup').style.display = tab === 'signup' ? 'block' : 'none';
+            document.getElementById('user-tab-signin').classList.toggle('btn-primary', tab === 'signin');
+            document.getElementById('user-tab-signin').classList.toggle('btn-secondary', tab !== 'signin');
+            document.getElementById('user-tab-signup').classList.toggle('btn-primary', tab === 'signup');
+            document.getElementById('user-tab-signup').classList.toggle('btn-secondary', tab !== 'signup');
+        }
+
+        function handleUserSignIn() {
+            // Prefer Firebase Auth if available (expects email + password)
+            const email = document.getElementById('ui-email').value.trim();
+            const p = document.getElementById('ui-password').value;
+            if(!email || !p) return showToast('Enter email and password');
+
+            if(window.firebaseSignIn) {
+                window.firebaseSignIn(email, p).then(user => {
+                    showToast('Signed in as ' + (user.email || user.user));
+                    closeUserModal();
+                }).catch(err => {
+                    console.error('firebaseSignIn error', err);
+                    showToast('Sign-in failed: ' + (err.message || err));
+                });
+                return;
+            }
+
+            // Fallback: localStorage (legacy)
+            const u = email;
+            users = JSON.parse(localStorage.getItem('ms_users')) || users || initialUsers;
+            const found = users.find(x => x.user === u && x.pass === p);
+            if(found) {
+                isUserSignedIn = true;
+                currentUser = found;
+                localStorage.setItem('ms_users', JSON.stringify(users));
+                updateUserModalState();
+                showToast('Signed in as ' + u);
+                closeUserModal();
+                updateUserNav();
+            } else {
+                showToast('Invalid credentials');
+            }
+        }
+
+        function handleUserSignUp() {
+            const email = document.getElementById('su-email').value.trim();
+            const p = document.getElementById('su-password').value;
+            if(!email || !p) return showToast('Fill email and password');
+
+            if(window.firebaseSignUp) {
+                window.firebaseSignUp(email, p).then(user => {
+                    showToast('Account created and signed in: ' + (user.email || email));
+                    document.getElementById('su-email').value = '';
+                    document.getElementById('su-password').value = '';
+                    closeUserModal();
+                }).catch(err => {
+                    console.error('firebaseSignUp error', err);
+                    showToast('Sign-up failed: ' + (err.message || err));
+                });
+                return;
+            }
+
+            // Fallback: localStorage (legacy)
+            const u = email;
+            users = JSON.parse(localStorage.getItem('ms_users')) || users || initialUsers;
+            if(users.find(x => x.user === u)) return showToast('User already exists');
+            const newUser = { id: Date.now(), user: u, pass: p };
+            users.push(newUser);
+            localStorage.setItem('ms_users', JSON.stringify(users));
+            // auto sign-in after signup
+            isUserSignedIn = true;
+            currentUser = newUser;
+            updateUserModalState();
+            updateUserNav();
+            showToast('User created and signed in: ' + u);
+            document.getElementById('su-email').value = '';
+            document.getElementById('su-password').value = '';
+            // close modal
+            closeUserModal();
+        }
+
+        function handleUserLogout() {
+            if(window.firebaseSignOut) {
+                window.firebaseSignOut().then(() => {
+                    showToast('User logged out');
+                }).catch(err => {
+                    console.error('firebaseSignOut error', err);
+                    showToast('Logout failed');
+                });
+                return;
+            }
+            if(!isUserSignedIn) return showToast('No user signed in');
+            isUserSignedIn = false;
+            currentUser = null;
+            updateUserModalState();
+            updateUserNav();
+            showToast('User logged out');
+        }
+
+        function handleForgotPassword() {
+            const email = document.getElementById('ui-email').value.trim();
+            if(!email) return showToast('Enter your email to reset password');
+
+            if(window.firebaseSendPasswordResetEmail) {
+                window.firebaseSendPasswordResetEmail(email).then(() => {
+                    showToast('Password reset email sent. Check your inbox.');
+                }).catch(err => {
+                    console.error('sendPasswordResetEmail error', err);
+                    showToast('Could not send reset email: ' + (err.message || err));
+                });
+                return;
+            }
+
+            // Fallback: look up local users and show the password (legacy fallback)
+            const localUsers = JSON.parse(localStorage.getItem('ms_users')) || users || initialUsers;
+            const found = localUsers.find(u => u.user === email || u.email === email);
+            if(found) {
+                // Insecure fallback: display password locally
+                alert('Your password (local copy): ' + (found.pass || found.password || 'not available'));
+                showToast('Displayed local password');
+            } else {
+                showToast('No account found locally. Please contact admin.');
+            }
+        }
+
+        function updateUserModalState() {
+            // Always enable signup button (we auto sign-in after signup)
+            const btn = document.getElementById('su-submit');
+            if(btn) btn.disabled = false;
+        }
+
+        function updateUserNav() {
+            const nav = document.getElementById('nav-user');
+            if(isUserSignedIn && currentUser) {
+                nav.innerText = 'User: ' + currentUser.user;
+            } else {
+                nav.innerText = 'User';
+            }
+        }
+
+        // Contact admin about a profile - navigate to the in-page contact section
+        // (was previously opening the mail client). Now it shows the Contact page
+        // and adds a short contextual note about which profile the user is enquiring about.
+        function contactAdmin(profileId) {
+            const p = profiles.find(x => x.id === profileId);
+            // Navigate to the contact page/section
+            showPage('contact');
+
+            // Add or update a small contextual info box inside the contact section
+            try {
+                const contactSection = document.getElementById('contact');
+                if(contactSection) {
+                    let info = document.getElementById('contact-profile-info');
+                    const profileName = p ? p.name : ('ID ' + profileId);
+                    const html = `<div style="padding:10px;margin-top:12px;background:#fff;border-radius:8px;border:1px solid #eee;text-align:center;"><strong>Enquiry about:</strong> ${profileName} (ID: ${profileId})</div>`;
+                    if(!info) {
+                        info = document.createElement('div');
+                        info.id = 'contact-profile-info';
+                        info.innerHTML = html;
+                        // append below the hero content
+                        const hero = contactSection.querySelector('.hero') || contactSection;
+                        hero.appendChild(info);
+                    } else {
+                        info.innerHTML = html;
+                    }
+                    // Smooth scroll to contact section so user sees it
+                    setTimeout(() => contactSection.scrollIntoView({ behavior: 'smooth' }), 80);
+                }
+            } catch (err) {
+                console.error('contactAdmin: error updating contact section', err);
+            }
+
+            showToast('Opened contact page — please reach out to admin');
+        }
+
         function showToast(msg) {
             const x = document.getElementById("toast");
             x.innerText = msg;
             x.className = "show";
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
         }
+
+        // Copy email button functionality (on Contact page)
+        document.addEventListener('click', function(e){
+            const btn = e.target.closest ? e.target.closest('#copy-email-btn') : (e.target.id === 'copy-email-btn' ? e.target : null);
+            if(!btn) return;
+            const email = 'MANISREEJAMARIAGELINKS@GMAIL.COM';
+            if(navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(function(){
+                    showToast('Email copied to clipboard');
+                }).catch(function(){
+                    fallbackCopy(email);
+                });
+            } else {
+                fallbackCopy(email);
+            }
+            function fallbackCopy(text){
+                try {
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    ta.style.position = 'fixed'; ta.style.left = '-9999px';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    showToast('Email copied to clipboard');
+                } catch(err) {
+                    showToast('Could not copy email — please copy manually');
+                }
+            }
+        });
 
         // Close modals when clicking outside
         window.onclick = function(e) {
@@ -1840,5 +2234,198 @@
             }
         });
     </script>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCPZLE5pCdxbl8JfnPRFtnBqUhQpH9p8d4",
+    authDomain: "manisreeja-mariage-links-e9746.firebaseapp.com",
+    projectId: "manisreeja-mariage-links-e9746",
+    storageBucket: "manisreeja-mariage-links-e9746.firebasestorage.app",
+    messagingSenderId: "245947560146",
+    appId: "1:245947560146:web:ba1020d9beb77b1b5cbd0b",
+    measurementId: "G-51LMJEY427"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  
+    // Firestore imports and helper functions (optional runtime):
+    import { getFirestore, collection, doc, setDoc, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    // Auth + Realtime Database imports
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+    import { getDatabase, ref as rtdbRef, set as rtdbSet, get as rtdbGet } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
+
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+    const rtdb = getDatabase(app);
+
+    // Sync helpers used by the app — they are best-effort and log errors on failure.
+    window.syncProfilesToFirestore = async function(profilesArray) {
+        if(!Array.isArray(profilesArray)) throw new Error('profilesArray must be an array');
+        const colRef = collection(db, 'profiles');
+        // Write each profile as a document with id = profile.id
+        for(const p of profilesArray) {
+            const docRef = doc(colRef, String(p.id));
+            await setDoc(docRef, p).catch(err => console.error('setDoc profile', p.id, err));
+        }
+    }
+
+    // Realtime Database sync (writes full profiles object to /profiles)
+    window.syncProfilesToRTDB = async function(profilesArray) {
+        if(!Array.isArray(profilesArray)) throw new Error('profilesArray must be an array');
+        try {
+            await rtdbSet(rtdbRef(rtdb, 'profiles'), profilesArray);
+        } catch(err) { console.error('syncProfilesToRTDB error', err); }
+    }
+
+    window.syncFieldsToFirestore = async function(fieldsArray) {
+        if(!Array.isArray(fieldsArray)) throw new Error('fieldsArray must be an array');
+        const colRef = collection(db, 'fields');
+        for(const f of fieldsArray) {
+            const id = f.id || Date.now();
+            const docRef = doc(colRef, String(id));
+            await setDoc(docRef, f).catch(err => console.error('setDoc field', id, err));
+        }
+    }
+
+    window.syncFieldsToRTDB = async function(fieldsArray) {
+        if(!Array.isArray(fieldsArray)) throw new Error('fieldsArray must be an array');
+        try {
+            await rtdbSet(rtdbRef(rtdb, 'fields'), fieldsArray);
+        } catch(err) { console.error('syncFieldsToRTDB error', err); }
+    }
+
+    window.syncAllFieldsToFirestore = async function(allFieldsArray) {
+        if(!Array.isArray(allFieldsArray)) throw new Error('allFieldsArray must be an array');
+        const colRef = collection(db, 'allFields');
+        for(const f of allFieldsArray) {
+            const id = f.id || f.name || Date.now();
+            const docRef = doc(colRef, String(id));
+            await setDoc(docRef, f).catch(err => console.error('setDoc allField', id, err));
+        }
+    }
+
+    window.syncAllFieldsToRTDB = async function(allFieldsArray) {
+        if(!Array.isArray(allFieldsArray)) throw new Error('allFieldsArray must be an array');
+        try {
+            await rtdbSet(rtdbRef(rtdb, 'allFields'), allFieldsArray);
+        } catch(err) { console.error('syncAllFieldsToRTDB error', err); }
+    }
+
+    // Admins sync helpers
+    window.syncAdminsToFirestore = async function(adminsArray) {
+        if(!Array.isArray(adminsArray)) throw new Error('adminsArray must be an array');
+        const colRef = collection(db, 'admins');
+        for(const a of adminsArray) {
+            const id = a.id || Date.now();
+            const docRef = doc(colRef, String(id));
+            await setDoc(docRef, a).catch(err => console.error('setDoc admin', id, err));
+        }
+    }
+
+    window.syncAdminsToRTDB = async function(adminsArray) {
+        if(!Array.isArray(adminsArray)) throw new Error('adminsArray must be an array');
+        try {
+            await rtdbSet(rtdbRef(rtdb, 'admins'), adminsArray);
+        } catch(err) { console.error('syncAdminsToRTDB error', err); }
+    }
+
+    // Firebase Auth helpers
+    window.firebaseSignUp = async function(email, password) {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        // create a minimal user record in Firestore and RTDB
+        try { await setDoc(doc(collection(db, 'users'), cred.user.uid), { email: email, uid: cred.user.uid }); } catch(e) { console.error('create user doc firestore', e); }
+        try { await rtdbSet(rtdbRef(rtdb, `users/${cred.user.uid}`), { email: email, uid: cred.user.uid }); } catch(e) { console.error('create user rtdb', e); }
+        return cred.user;
+    }
+
+    window.firebaseSignIn = async function(email, password) {
+        const cred = await signInWithEmailAndPassword(auth, email, password);
+        return cred.user;
+    }
+
+    window.firebaseSignOut = async function() {
+        return signOut(auth);
+    }
+
+    // send password reset (Firebase)
+    window.firebaseSendPasswordResetEmail = async function(email) {
+        return sendPasswordResetEmail(auth, email);
+    }
+
+    // Auth state listener to update UI and local state
+    onAuthStateChanged(auth, async (user) => {
+        if(user) {
+            isUserSignedIn = true;
+            currentUser = { id: user.uid, user: user.email };
+            updateUserModalState();
+            updateUserNav();
+            // optional: load user-specific data or sync
+            console.log('Firebase auth signed in as', user.email);
+        } else {
+            isUserSignedIn = false;
+            currentUser = null;
+            updateUserModalState();
+            updateUserNav();
+            console.log('Firebase auth signed out');
+        }
+    });
+
+    // Optionally, provide a loader to pull initial data from Firestore into localStorage
+    window.loadDataFromFirestore = async function() {
+        try {
+            // load admins
+            try {
+                const adminsSnap = await getDocs(collection(db, 'admins'));
+                const loadedAdmins = [];
+                adminsSnap.forEach(d => loadedAdmins.push(d.data()));
+                if(loadedAdmins.length) {
+                    admins = loadedAdmins;
+                    localStorage.setItem('ms_admins', JSON.stringify(admins));
+                }
+            } catch(e) { console.warn('Could not load admins from Firestore', e); }
+
+            // load profiles
+            const profilesSnap = await getDocs(collection(db, 'profiles'));
+            const loadedProfiles = [];
+            profilesSnap.forEach(d => loadedProfiles.push(d.data()));
+            if(loadedProfiles.length) {
+                profiles = loadedProfiles;
+                localStorage.setItem('ms_profiles', JSON.stringify(profiles));
+            }
+
+            // load fields
+            const fieldsSnap = await getDocs(collection(db, 'fields'));
+            const loadedFields = [];
+            fieldsSnap.forEach(d => loadedFields.push(d.data()));
+            if(loadedFields.length) {
+                customFields = loadedFields;
+                localStorage.setItem('ms_fields', JSON.stringify(customFields));
+            }
+
+            const allFieldsSnap = await getDocs(collection(db, 'allFields'));
+            const loadedAll = [];
+            allFieldsSnap.forEach(d => loadedAll.push(d.data()));
+            if(loadedAll.length) {
+                allFields = loadedAll;
+                localStorage.setItem('ms_allfields', JSON.stringify(allFields));
+            }
+
+            showToast('Loaded data from Firestore');
+            // re-render current page if needed
+            renderProfiles();
+        } catch (err) {
+            console.error('loadDataFromFirestore error', err);
+        }
+    }
+</script>
 </body>
 </html>
